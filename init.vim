@@ -13,6 +13,8 @@ let mapleader=" "
 " highlight wide strings
 let &colorcolumn=join(range(81,999),",")
 
+nnoremap <CR> :noh<CR><CR>
+
 " ========================================
 " Plug
 " ========================================
@@ -21,6 +23,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " code features
 Plug 'scrooloose/nerdcommenter'
@@ -30,6 +33,17 @@ Plug 'tpope/vim-repeat'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'sjl/gundo.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'vim-scripts/a.vim'
+Plug 'andrewradev/splitjoin.vim'
+Plug 'jiangmiao/auto-pairs'
+
+" languages
+Plug 'vim-ruby/vim-ruby'
+
+" frameworks
+Plug 'tpope/vim-rails'
 
 " lint
 Plug 'w0rp/ale'
@@ -42,6 +56,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'kshenoy/vim-signature'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " external utils
 Plug 'mileszs/ack.vim'
@@ -50,6 +66,7 @@ Plug 'junegunn/fzf.vim'
 " git utils
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -108,6 +125,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " airblade/vim-gitgutter
 set signcolumn=yes
+set updatetime=100
 
 
 " Yggdroot/indentLine
@@ -119,3 +137,7 @@ let g:indentLine_faster = 0
 let g:yankstack_map_keys = 0
 nmap <leader>k <Plug>yankstack_substitute_older_paste
 nmap <leader>j <Plug>yankstack_substitute_newer_paste
+
+
+" sjl/gundo.vim
+map <leader>u :GundoToggle<cr>
