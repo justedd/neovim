@@ -15,6 +15,11 @@ let &colorcolumn=join(range(81,999),",")
 
 nnoremap <CR> :noh<CR><CR>
 
+" hightlight word
+nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+set nofoldenable
+
 " ========================================
 " Plug
 " ========================================
@@ -67,6 +72,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -113,7 +120,6 @@ let g:ale_linters = {
       \   'ruby': ['rubocop', 'reek'],
       \   'cpp': [],
       \}
-let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '✗'
 let g:ale_set_highlights = 0
@@ -129,7 +135,7 @@ set updatetime=100
 
 
 " Yggdroot/indentLine
-let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#333333'
 let g:indentLine_faster = 0
 
 
@@ -141,3 +147,16 @@ nmap <leader>j <Plug>yankstack_substitute_newer_paste
 
 " sjl/gundo.vim
 map <leader>u :GundoToggle<cr>
+
+
+" bling/vim-airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#ale#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
+
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='base16_default'
