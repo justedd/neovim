@@ -56,17 +56,9 @@ Plug 'w0rp/ale'
 " Syntax Hightligth
 Plug 'plasticboy/vim-markdown'
 
-" UI
-Plug 'chriskempson/base16-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
-Plug 'kshenoy/vim-signature'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " external utils
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " git utils
 Plug 'tpope/vim-fugitive'
@@ -74,6 +66,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" UI
+Plug 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Yggdroot/indentLine'
+Plug 'kshenoy/vim-signature'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -100,13 +100,8 @@ nmap <Leader>n :NERDTreeToggle<CR>
 map <leader>s :NERDTreeFind<cr>
 
 
-" junegunn/fzf.vim
-nmap <Leader>p :FZF<CR>
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-let g:fzf_layout = { 'down': '~20%' }
+" ctrlpvim/ctrlp.vim
+let g:ctrlp_map = '<Leader>p'
 
 
 " w0rp/ale
