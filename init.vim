@@ -37,6 +37,8 @@ Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
+
+" LSP
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -164,5 +166,5 @@ let g:airline_theme='base16_default'
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 let g:LanguageClient_autoStop = 0
 let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['tcp://localhost:7658']
+    \ 'ruby': ['solargraph', 'stdio']
     \ }
