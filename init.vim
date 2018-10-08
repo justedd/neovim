@@ -25,11 +25,6 @@ set nofoldenable
 " ========================================
 call plug#begin('~/.local/share/nvim/plugged')
 
-" autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
 " code features
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
@@ -42,6 +37,15 @@ Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fishbullet/deoplete-ruby'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -154,3 +158,11 @@ let g:airline#extensions#whitespace#enabled = 0
 
 " vim-airline/vim-airline-themes
 let g:airline_theme='base16_default'
+
+
+" autozimu/LanguageClient-neovim
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+let g:LanguageClient_autoStop = 0
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['tcp://localhost:7658']
+    \ }
