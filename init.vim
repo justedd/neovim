@@ -40,7 +40,6 @@ Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-scripts/a.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
 
