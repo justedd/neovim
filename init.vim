@@ -143,6 +143,8 @@ let g:indentLine_faster = 0
 let g:yankstack_map_keys = 0
 nmap <leader>k <Plug>yankstack_substitute_older_paste
 nmap <leader>j <Plug>yankstack_substitute_newer_paste
+" vim-suround conflict with visual surround
+call yankstack#setup()
 
 
 " sjl/gundo.vim
