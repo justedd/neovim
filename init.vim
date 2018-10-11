@@ -19,6 +19,7 @@ nnoremap <CR> :noh<CR><CR>
 nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 set nofoldenable
+set relativenumber
 
 " ========================================
 " Plug
@@ -170,3 +171,11 @@ let g:LanguageClient_autoStop = 0
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio']
     \ }
+
+
+" ========================================
+" Post Base
+" ========================================
+
+" hide tilde characters at the line numbers
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
