@@ -64,7 +64,7 @@ Plug 'plasticboy/vim-markdown'
 
 " external utils
 Plug 'mileszs/ack.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 
 " git utils
 Plug 'tpope/vim-fugitive'
@@ -106,9 +106,9 @@ nmap <Leader>n :NERDTreeToggle<CR>
 map <leader>s :NERDTreeFind<cr>
 
 
-" ctrlpvim/ctrlp.vim
-let g:ctrlp_map = '<Leader>p'
-
+" junegunn/fzf.vim
+nmap <Leader>p :FZF<CR>
+let g:fzf_layout = { 'down': '~20%' }
 
 " w0rp/ale
 let g:ale_fixers = {
