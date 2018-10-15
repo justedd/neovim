@@ -6,20 +6,19 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-set number
+set nofoldenable
+set relativenumber
 
 let mapleader=" "
 
 " highlight wide strings
 let &colorcolumn=join(range(81,999),",")
 
-nnoremap <CR> :noh<CR><CR>
-
 " hightlight word
 nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
-set nofoldenable
-set relativenumber
+" easy remove hightlight
+nnoremap <CR> :noh<CR><CR>
 
 " ========================================
 " Plug
@@ -174,7 +173,7 @@ let g:LanguageClient_serverCommands = {
 
 
 " ========================================
-" Post Base
+" Post Initialize
 " ========================================
 
 " hide tilde characters at the line numbers
