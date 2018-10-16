@@ -7,6 +7,7 @@ set softtabstop=2
 set tabstop=2
 
 set nofoldenable
+set number
 set relativenumber
 
 let mapleader=" "
