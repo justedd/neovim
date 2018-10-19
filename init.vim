@@ -81,6 +81,9 @@ Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" scratch-pad
+Plug 'metakirby5/codi.vim'
+
 call plug#end()
 
 " ========================================
