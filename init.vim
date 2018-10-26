@@ -15,6 +15,9 @@ let mapleader=" "
 " highlight wide strings
 let &colorcolumn=join(range(81,999),",")
 
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
+
 " hightlight word
 nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
@@ -52,6 +55,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " languages
 Plug 'vim-ruby/vim-ruby'
+Plug 'pangloss/vim-javascript'
 
 " frameworks
 Plug 'tpope/vim-rails'
