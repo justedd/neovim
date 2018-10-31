@@ -6,7 +6,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-set nofoldenable
 set number
 set relativenumber
 
@@ -23,6 +22,11 @@ nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " easy remove hightlight
 nnoremap <CR> :noh<CR><CR>
+
+" try to use folding again
+set foldmethod=indent
+set foldlevel=1
+set fillchars=fold:\ 
 
 " ========================================
 " Plug
