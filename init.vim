@@ -25,7 +25,7 @@ nnoremap <CR> :noh<CR><CR>
 
 " try to use folding again
 set foldmethod=indent
-set foldlevel=1
+set foldlevelstart=1
 set fillchars=fold:\ 
 
 " ========================================
@@ -77,17 +77,18 @@ Plug 'junegunn/fzf.vim'
 " git utils
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" File browsing
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 " UI
 Plug 'chriskempson/base16-vim'
-Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " scratch-pad
 Plug 'metakirby5/codi.vim'
@@ -119,6 +120,16 @@ let g:NERDSpaceDelims = 1
 let NERDTreeCascadeSingleChildDir = 0
 nmap <Leader>n :NERDTreeToggle<CR>
 map <leader>s :NERDTreeFind<cr>
+
+if has('autocmd')
+  augroup WincentNERDTree
+    autocmd!
+    autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
+  augroup END
+endif
+" Like vim-vinegar.
+nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 
 " junegunn/fzf.vim
