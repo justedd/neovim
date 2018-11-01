@@ -60,9 +60,14 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " languages
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
+Plug 'JulesWang/css.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'slim-template/vim-slim'
 
 " frameworks
 Plug 'tpope/vim-rails'
+Plug 'mxw/vim-jsx'
 
 " lint
 Plug 'w0rp/ale'
