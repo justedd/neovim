@@ -100,7 +100,6 @@ Plug 'metakirby5/codi.vim'
 
 " snippets
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
