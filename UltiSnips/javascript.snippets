@@ -1,6 +1,12 @@
-snippet caf "arrow function (fun)" b
+snippet caf "const arrow function" b
 const ${1:function_name} = (${2:argument}) => {
-	$3
+  $3
+}
+endsnippet
+
+snippet af "arrow function" w
+(${1:argument}) => {
+  $2
 }
 endsnippet
 
@@ -10,4 +16,8 @@ endsnippet
 
 snippet imm "import desctructing" b
 import { ${1:module} } from '${2:package}'
+endsnippet
+
+snippet constd "import desctructing" b
+const { ${1:variables} } = '${2:source}'
 endsnippet

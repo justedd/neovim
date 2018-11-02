@@ -23,6 +23,8 @@ nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " easy remove hightlight
 nnoremap <CR> :noh<CR><CR>
 
+nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
+
 " try to use folding again
 set foldmethod=indent
 set foldlevelstart=1
