@@ -84,8 +84,6 @@ Plug 'junegunn/fzf.vim'
 " git utils
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " File browsing
 Plug 'scrooloose/nerdtree'
@@ -96,6 +94,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " scratch-pad
 Plug 'metakirby5/codi.vim'
@@ -194,7 +194,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 
 " vim-airline/vim-airline-themes
-let g:airline_theme='base16_default'
+let g:airline_theme='molokai'
 
 
 " autozimu/LanguageClient-neovim
