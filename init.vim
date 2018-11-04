@@ -194,7 +194,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 
 " vim-airline/vim-airline-themes
-let g:airline_theme='molokai'
+let g:airline_theme='ubaryd'
 
 
 " autozimu/LanguageClient-neovim
