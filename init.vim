@@ -33,6 +33,10 @@ set fillchars=fold:\
 " system clipboard
 xmap <Leader>y "+y
 
+set hlsearch
+set ignorecase
+set smartcase
+
 " ========================================
 " Plug
 " ========================================
@@ -43,7 +47,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
@@ -61,6 +64,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+Plug 'wincent/terminus'
 
 " languages
 Plug 'vim-ruby/vim-ruby'
