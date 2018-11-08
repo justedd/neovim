@@ -30,6 +30,9 @@ set foldmethod=indent
 set foldlevelstart=1
 set fillchars=fold:\ 
 
+" system clipboard
+xmap <Leader>y "+y
+
 " ========================================
 " Plug
 " ========================================
@@ -194,7 +197,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 
 " vim-airline/vim-airline-themes
-let g:airline_theme='ubaryd'
+let g:airline_theme='base16_default'
 
 
 " autozimu/LanguageClient-neovim
