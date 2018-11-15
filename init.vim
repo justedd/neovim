@@ -37,6 +37,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" like a shell
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 " ========================================
 " Plug
 " ========================================
