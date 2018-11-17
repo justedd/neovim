@@ -45,6 +45,8 @@ cnoremap <C-e> <End>
 nmap Q q
 nnoremap K <noop>
 
+nnoremap <Leader><Leader> <C-^>
+
 " ========================================
 " Plug
 " ========================================
