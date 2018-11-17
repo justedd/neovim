@@ -41,6 +41,10 @@ set smartcase
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" never use them
+nmap Q q
+nnoremap K <noop>
+
 " ========================================
 " Plug
 " ========================================
