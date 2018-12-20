@@ -64,6 +64,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
 
+
+Plug 'lervag/vimtex'
+
 " LSP
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
