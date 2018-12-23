@@ -1,11 +1,47 @@
-snippet di "initialize" w
+snippet di "initialize" b
 def initialize
-  $1
+  ${1:# ...}
 end
 endsnippet
 
-snippet dii "initialize with args" w
+snippet ddi "initialize with args" b
 def initialize(${1:argument})
   $2
 end
+endsnippet
+
+snippet d "def wihtout args" b
+def ${1:name}
+  ${2:# ...}
+end
+endsnippet
+
+snippet dd "def with args" b
+def ${1:name}(${2:arguments})
+  ${3:# ...}
+end
+endsnippet
+
+snippet cl "class" b
+# ${1:comment description}
+class ${2:name}
+  ${3:# ...}
+end
+endsnippet
+
+snippet cli "class with parent" b
+# ${1:comment description}
+class ${2:name} < ${3:parent}
+  ${4:# ...}
+end
+endsnippet
+
+snippet do "block multilne" w
+do |${1:args}|
+  ${2:# ...}
+end
+endsnippet
+
+snippet { "block oneline" w
+{ |${1:args}| ${2:# ...}}
 endsnippet
