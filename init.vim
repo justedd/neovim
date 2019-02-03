@@ -63,6 +63,7 @@ Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'matze/vim-move'
 
 
 Plug 'lervag/vimtex'
@@ -75,10 +76,12 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 Plug 'wincent/terminus'
+
+" grammar
+Plug 'rhysd/vim-grammarous'
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -225,6 +228,9 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio']
     \ }
 
+
+" lervag/vimtex
+nmap <leader>g :GrammarousCheck<CR>
 
 " ========================================
 " Post Initialize
