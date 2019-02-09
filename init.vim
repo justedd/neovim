@@ -108,6 +108,7 @@ Plug 'junegunn/fzf.vim'
 " git utils
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
 
 " File browsing
 Plug 'scrooloose/nerdtree'
@@ -174,7 +175,7 @@ let g:ale_fixers = {
       \}
 let g:ale_linters = {
       \   'javascript': ['eslint'],
-      \   'ruby': ['rubocop', 'reek'],
+      \   'ruby': ['rubocop'],
       \   'cpp': [],
       \}
 let g:ale_sign_error = '✗'
