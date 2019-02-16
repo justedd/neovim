@@ -66,7 +66,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
 
 
+" external features
 Plug 'lervag/vimtex'
+Plug 'rhysd/vim-grammarous'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim'
 
 " LSP
 Plug 'autozimu/LanguageClient-neovim', {
@@ -81,7 +85,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'wincent/terminus'
 
 " grammar
-Plug 'rhysd/vim-grammarous'
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -90,6 +93,8 @@ Plug 'JulesWang/css.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'slim-template/vim-slim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'aklt/plantuml-syntax'
 
 " frameworks
 Plug 'tpope/vim-rails'
