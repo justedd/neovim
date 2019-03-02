@@ -11,7 +11,7 @@ set relativenumber
 
 let mapleader=" "
 
-" highlight wide strings
+" highlight wide lines
 let &colorcolumn=join(range(81,999),",")
 
 set backupdir=~/.vim/backup/
@@ -19,9 +19,6 @@ set directory=~/.vim/backup/
 
 " hightlight word
 nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
-" easy remove hightlight
-nnoremap <CR> :noh<CR><CR>
 
 nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
 
@@ -64,7 +61,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
-
+Plug 'Yggdroot/indentLine'
+Plug 'thiagoalessio/rainbow_levels.vim'
 
 " external features
 Plug 'lervag/vimtex'
@@ -82,9 +80,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
+" some great stuff
 Plug 'wincent/terminus'
-
-" grammar
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -95,16 +92,16 @@ Plug 'digitaltoad/vim-jade'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'aklt/plantuml-syntax'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-bundler'
 
 " frameworks
 Plug 'tpope/vim-rails'
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
 
 " lint
 Plug 'w0rp/ale'
-
-" Syntax Hightligth
-Plug 'plasticboy/vim-markdown'
 
 " external utils
 Plug 'mileszs/ack.vim'
@@ -121,7 +118,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " UI
 Plug 'chriskempson/base16-vim'
-Plug 'Yggdroot/indentLine'
 Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
 Plug 'bling/vim-airline'
