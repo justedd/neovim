@@ -17,9 +17,6 @@ let &colorcolumn=join(range(81,999),",")
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 
-" hightlight word
-nmap <C-H> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
 nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
 
 " try to use folding again
@@ -30,7 +27,6 @@ set fillchars=fold:\
 " system clipboard
 xmap <Leader>y "+y
 
-set hlsearch
 set ignorecase
 set smartcase
 
@@ -63,6 +59,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'haya14busa/vim-asterisk'
 
 " external features
 Plug 'lervag/vimtex'
@@ -134,7 +131,6 @@ call plug#end()
 " ========================================
 " Plugin specific sttings
 " ========================================
-
 
 " chriskempson/base16-vim
 if filereadable(expand("~/.vimrc_background"))
@@ -240,3 +236,6 @@ nmap <leader>g :GrammarousCheck<CR>
 
 " hide tilde characters at the line numbers
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
+" let g:quickfix_is_open = 0
+nmap <C-H> :call mappings#cycle_highlight() <CR>
