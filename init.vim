@@ -27,8 +27,9 @@ set fillchars=fold:\
 " system clipboard
 xmap <Leader>y "+y
 
-set ignorecase
-set smartcase
+" set ignorecase
+" set smartcase
+set hlsearch
 
 " like a shell
 cnoremap <C-a> <Home>

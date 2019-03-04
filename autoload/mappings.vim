@@ -11,16 +11,15 @@ function! mappings#cycle_numbering() abort
   endif
 endfunction
 
+set hlsearch
 let g:search_highlighted = 0
-set nohlsearch
 
 function! mappings#cycle_highlight()
   if g:search_highlighted
-    set nohlsearch
+    let @/=""
     let g:search_highlighted = 0
   else
     execute "normal \<Plug>(asterisk-z*)"
     let g:search_highlighted = 1
-    set hlsearch
   end
 endfunction
