@@ -41,6 +41,8 @@ nnoremap K <noop>
 
 nnoremap <Leader><Leader> <C-^>
 
+command! InsertTime :normal a<C-R>=strftime('%F %H:%M')<CR>
+
 " ========================================
 " Plug
 " ========================================
@@ -61,6 +63,7 @@ Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
+Plug 'tpope/vim-unimpaired'
 
 " external features
 Plug 'lervag/vimtex'
@@ -75,8 +78,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " some great stuff
 Plug 'wincent/terminus'
@@ -121,6 +123,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" vim stuff
+Plug 'embear/vim-localvimrc'
+
 " scratch-pad
 Plug 'metakirby5/codi.vim'
 
@@ -138,10 +143,6 @@ if filereadable(expand("~/.vimrc_background"))
   set termguicolors
   source ~/.vimrc_background
 endif
-
-
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
 
 
 " scrooloose/nerdtree
@@ -173,7 +174,7 @@ let g:ale_fixers = {
       \}
 let g:ale_linters = {
       \   'javascript': ['eslint'],
-      \   'ruby': ['rubocop'],
+      \   'ruby': ['rubocop', 'reek'],
       \   'cpp': [],
       \}
 let g:ale_sign_error = '✗'
@@ -230,6 +231,12 @@ let g:LanguageClient_serverCommands = {
 
 " lervag/vimtex
 nmap <leader>g :GrammarousCheck<CR>
+
+
+" embear/vim-localvimrc
+let g:localvimrc_ask = 0
+
+
 
 " ========================================
 " Post Initialize
