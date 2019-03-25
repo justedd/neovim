@@ -9,6 +9,8 @@ set tabstop=2
 set number
 set relativenumber
 
+set diffopt+=vertical
+
 let mapleader=" "
 
 " highlight wide lines
@@ -235,7 +237,6 @@ nmap <leader>g :GrammarousCheck<CR>
 
 " embear/vim-localvimrc
 let g:localvimrc_ask = 0
-
 
 
 " ========================================
