@@ -43,7 +43,9 @@ nnoremap K <noop>
 
 nnoremap <Leader><Leader> <C-^>
 
+" Commnands
 command! InsertTime :normal a<C-R>=strftime('%F %H:%M')<CR>
+command! Tfold :normal :call mappings#toggle_fold() <CR>
 
 " ========================================
 " Plug
@@ -66,6 +68,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
+Plug 'AndrewRadev/linediff.vim'
 
 " external features
 Plug 'lervag/vimtex'
@@ -84,6 +87,9 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " some great stuff
 Plug 'wincent/terminus'
+
+" temporary
+Plug 'takac/vim-hardtime'
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -150,6 +156,7 @@ endif
 " scrooloose/nerdtree
 let g:NERDSpaceDelims = 1
 let NERDTreeCascadeSingleChildDir = 0
+let NERDTreeQuitOnOpen = 1
 nmap <Leader>n :NERDTreeToggle<CR>
 map <leader>s :NERDTreeFind<cr>
 
@@ -237,6 +244,9 @@ nmap <leader>g :GrammarousCheck<CR>
 
 " embear/vim-localvimrc
 let g:localvimrc_ask = 0
+
+" hardmode
+let g:hardtime_default_on = 1
 
 
 " ========================================
