@@ -29,8 +29,8 @@ set fillchars=fold:\
 " system clipboard
 xmap <Leader>y "+y
 
-" set ignorecase
-" set smartcase
+set ignorecase
+set smartcase
 set hlsearch
 
 " like a shell
@@ -69,6 +69,14 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/linediff.vim'
+Plug 'rickhowe/diffchar.vim'
+
+"additional modes
+Plug 'simeji/winresizer'
+
+" DB
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
 
 " external features
 Plug 'lervag/vimtex'
@@ -248,6 +256,8 @@ let g:localvimrc_ask = 0
 " hardmode
 let g:hardtime_default_on = 1
 
+" rickhowe/diffchar.vim
+let g:DiffColors = 100
 
 " ========================================
 " Post Initialize
