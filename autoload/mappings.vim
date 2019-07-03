@@ -28,9 +28,6 @@ endfunction
 let g:default_fold_level = 1
 let g:hidden_fold_level = 1000
 
-execute "set foldlevel=".g:default_fold_level
-execute "set foldlevelstart=".g:default_fold_level
-
 let g:everything_folded = 0
 function! mappings#toggle_fold()
   if g:everything_folded

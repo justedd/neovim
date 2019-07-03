@@ -110,6 +110,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'aklt/plantuml-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
+Plug 'jparise/vim-graphql'
 
 " frameworks
 Plug 'tpope/vim-rails'
@@ -254,7 +255,7 @@ nmap <leader>g :GrammarousCheck<CR>
 let g:localvimrc_ask = 0
 
 " hardmode
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 
 " rickhowe/diffchar.vim
 let g:DiffColors = 100
