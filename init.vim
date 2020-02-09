@@ -23,7 +23,8 @@ nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
 
 " try to use folding again
 set foldmethod=indent
-set foldlevelstart=1
+autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+
 set fillchars=fold:\ 
 
 " system clipboard
@@ -70,13 +71,19 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'rickhowe/diffchar.vim'
+Plug 'jeetsukumaran/vim-indentwise'
+Plug 'michaeljsmith/vim-indent-object'
 
 "additional modes
 Plug 'simeji/winresizer'
 
+Plug 'yssl/QFEnter'
+
 " DB
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
+
+Plug 'francoiscabrol/ranger.vim'
 
 " external features
 Plug 'lervag/vimtex'
@@ -111,6 +118,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
 Plug 'jparise/vim-graphql'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " frameworks
 Plug 'tpope/vim-rails'
@@ -182,6 +190,7 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 " junegunn/fzf.vim
 nmap <Leader>p :FZF<CR>
+nmap <Leader>P :Ag<CR>
 let g:fzf_layout = { 'down': '~20%' }
 
 " w0rp/ale
@@ -250,6 +259,8 @@ let g:LanguageClient_serverCommands = {
 " lervag/vimtex
 nmap <leader>g :GrammarousCheck<CR>
 
+
+map <leader>S :syntax sync fromstart<CR>
 
 " embear/vim-localvimrc
 let g:localvimrc_ask = 0
