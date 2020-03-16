@@ -73,6 +73,10 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'rickhowe/diffchar.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-scripts/vim-auto-save'
+
+Plug 'tpope/vim-eunuch'
+Plug 'samoshkin/vim-find-files'
 
 "additional modes
 Plug 'simeji/winresizer'
@@ -131,6 +135,8 @@ Plug 'w0rp/ale'
 " external utils
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
+
 
 " git utils
 Plug 'tpope/vim-fugitive'
@@ -191,6 +197,7 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 " junegunn/fzf.vim
 nmap <Leader>p :FZF<CR>
 nmap <Leader>P :Ag<CR>
+nmap <Leader>m :FZFMru<CR>
 let g:fzf_layout = { 'down': '~20%' }
 
 " w0rp/ale
@@ -255,9 +262,15 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio']
     \ }
 
+" vim-scropts/vim-autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_silent = 1
 
 " lervag/vimtex
 nmap <leader>g :GrammarousCheck<CR>
+
+" tpope/vim-eunuch
+nmap <leader>w :Wall<CR>
 
 
 map <leader>S :syntax sync fromstart<CR>
@@ -271,6 +284,7 @@ let g:hardtime_default_on = 0
 " rickhowe/diffchar.vim
 let g:DiffColors = 100
 
+
 " ========================================
 " Post Initialize
 " ========================================
@@ -280,3 +294,8 @@ hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 " let g:quickfix_is_open = 0
 nmap <C-H> :call mappings#cycle_highlight() <CR>
+
+" let g:indentLine_conceallevel = 0
+" let g:indentLine_setConceal = 0
+
+let g:find_files_findprg = 'fd --hidden $* $d'
