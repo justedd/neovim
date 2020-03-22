@@ -60,11 +60,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'mbbill/undotree'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'matze/vim-move'
+" Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -78,16 +79,35 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
 
+" Plug 'wellle/context.vim'
+
+Plug 'rhysd/git-messenger.vim'
+
 "additional modes
 Plug 'simeji/winresizer'
 
+Plug 'wincent/vcs-jump'
+
+Plug 'wincent/ferret'
+
+
 Plug 'yssl/QFEnter'
+
+Plug 'junegunn/vim-emoji'
 
 " DB
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 
 Plug 'francoiscabrol/ranger.vim'
+
+" Plug 'osyo-manga/vim-over'
+" Plug 'brooth/far.vim'
+" Plug 'andymass/vim-matchup'
+Plug 'markonm/traces.vim'
+
+" Plug 'tmhedberg/matchit'
+
 
 " external features
 Plug 'lervag/vimtex'
@@ -103,6 +123,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " autocomplete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 
 " some great stuff
 Plug 'wincent/terminus'
@@ -133,7 +157,7 @@ Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
 
 " external utils
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
@@ -146,11 +170,11 @@ Plug 'tpope/vim-rhubarb'
 " File browsing
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " UI
 Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
-Plug 'ryanoasis/vim-devicons'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -197,7 +221,11 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 " junegunn/fzf.vim
 nmap <Leader>p :FZF<CR>
 nmap <Leader>P :Ag<CR>
-nmap <Leader>m :FZFMru<CR>
+" nmap <Leader>m :FZFMru<CR>
+
+let g:loaded_matchparen=1
+" nnoremap <silent> <Leader>m :execute (exists('g:loaded_matchparen') ? 'No' : 'Do') . 'MatchParen'<CR>
+
 let g:fzf_layout = { 'down': '~20%' }
 
 " w0rp/ale
@@ -211,8 +239,8 @@ let g:ale_linters = {
       \   'ruby': ['rubocop', 'reek'],
       \   'cpp': [],
       \}
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '✗'
+let g:ale_sign_error = emoji#for('broken_heart')
+let g:ale_sign_warning = emoji#for('fire')
 let g:ale_set_highlights = 0
 highlight link ALEWarningSign todo
 highlight link ALEErrorSign todo
@@ -239,7 +267,7 @@ call yankstack#setup()
 
 
 " sjl/gundo.vim
-map <leader>u :GundoToggle<cr>
+" map <leader>u :GundoToggle<cr>
 
 
 " bling/vim-airline
@@ -261,6 +289,18 @@ let g:LanguageClient_autoStop = 0
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio']
     \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+
+
+" \ 'ruby': ['solargraph', 'stdio']
+
+" \ 'ruby': ['docker-compose', 'exec', 'app', 'solargraph', 'socket']
 
 " vim-scropts/vim-autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -284,6 +324,51 @@ let g:hardtime_default_on = 0
 " rickhowe/diffchar.vim
 let g:DiffColors = 100
 
+" vim-emoji
+let g:gitgutter_sign_added = emoji#for('arrow_forward')
+let g:gitgutter_sign_modified = emoji#for('arrow_right_hook')
+let g:gitgutter_sign_removed = emoji#for('arrow_backward')
+let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
+
+
+"deoplete
+" let g:deoplete#enable_at_startup = 1
+
+
+
+" start COC
+" Use `[g` and `]g` to navigate diagnostics
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+" nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" end COC
 
 " ========================================
 " Post Initialize
@@ -299,3 +384,4 @@ nmap <C-H> :call mappings#cycle_highlight() <CR>
 " let g:indentLine_setConceal = 0
 
 let g:find_files_findprg = 'fd --hidden $* $d'
+
