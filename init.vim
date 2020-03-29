@@ -48,6 +48,8 @@ nnoremap <Leader><Leader> <C-^>
 command! InsertTime :normal a<C-R>=strftime('%F %H:%M')<CR>
 command! Tfold :normal :call mappings#toggle_fold() <CR>
 
+map <leader>S :syntax sync fromstart<CR>
+
 " ========================================
 " Plug
 " ========================================
@@ -60,12 +62,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-" Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -78,8 +78,6 @@ Plug 'vim-scripts/vim-auto-save'
 
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
-
-" Plug 'wellle/context.vim'
 
 Plug 'rhysd/git-messenger.vim'
 
@@ -99,15 +97,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 
-Plug 'francoiscabrol/ranger.vim'
-
-" Plug 'osyo-manga/vim-over'
-" Plug 'brooth/far.vim'
-" Plug 'andymass/vim-matchup'
 Plug 'markonm/traces.vim'
-
-" Plug 'tmhedberg/matchit'
-
 
 " external features
 Plug 'lervag/vimtex'
@@ -123,10 +113,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " autocomplete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 
 " some great stuff
 Plug 'wincent/terminus'
@@ -157,20 +143,23 @@ Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
 
 " external utils
-" Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
 
 " git utils
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
+Plug 'sodapopcan/vim-twiggy'
+
 
 " File browsing
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+
 
 " UI
 Plug 'chriskempson/base16-vim'
@@ -178,11 +167,14 @@ Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+
 " vim stuff
 Plug 'embear/vim-localvimrc'
 
+
 " scratch-pad
 Plug 'metakirby5/codi.vim'
+
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -205,7 +197,7 @@ let g:NERDSpaceDelims = 1
 let NERDTreeCascadeSingleChildDir = 0
 let NERDTreeQuitOnOpen = 1
 nmap <Leader>n :NERDTreeToggle<CR>
-map <leader>s :NERDTreeFind<cr>
+map <leader>N :NERDTreeFind<cr>
 
 if has('autocmd')
   augroup WincentNERDTree
@@ -239,6 +231,7 @@ let g:ale_linters = {
       \   'ruby': ['rubocop', 'reek'],
       \   'cpp': [],
       \}
+
 let g:ale_sign_error = emoji#for('broken_heart')
 let g:ale_sign_warning = emoji#for('fire')
 let g:ale_set_highlights = 0
@@ -266,10 +259,6 @@ nmap <leader>j <Plug>yankstack_substitute_newer_paste
 call yankstack#setup()
 
 
-" sjl/gundo.vim
-" map <leader>u :GundoToggle<cr>
-
-
 " bling/vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -290,17 +279,6 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio']
     \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-
-
-" \ 'ruby': ['solargraph', 'stdio']
-
-" \ 'ruby': ['docker-compose', 'exec', 'app', 'solargraph', 'socket']
 
 " vim-scropts/vim-autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -313,16 +291,17 @@ nmap <leader>g :GrammarousCheck<CR>
 nmap <leader>w :Wall<CR>
 
 
-map <leader>S :syntax sync fromstart<CR>
-
 " embear/vim-localvimrc
 let g:localvimrc_ask = 0
+
 
 " hardmode
 let g:hardtime_default_on = 0
 
+
 " rickhowe/diffchar.vim
 let g:DiffColors = 100
+
 
 " vim-emoji
 let g:gitgutter_sign_added = emoji#for('arrow_forward')
@@ -331,23 +310,10 @@ let g:gitgutter_sign_removed = emoji#for('arrow_backward')
 let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
 
 
-"deoplete
-" let g:deoplete#enable_at_startup = 1
-
-
-
-" start COC
-" Use `[g` and `]g` to navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
+" neoclide/coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -358,18 +324,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" end COC
-
 " ========================================
 " Post Initialize
 " ========================================
@@ -377,11 +331,6 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " hide tilde characters at the line numbers
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
-" let g:quickfix_is_open = 0
 nmap <C-H> :call mappings#cycle_highlight() <CR>
 
-" let g:indentLine_conceallevel = 0
-" let g:indentLine_setConceal = 0
-
 let g:find_files_findprg = 'fd --hidden $* $d'
-
