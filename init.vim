@@ -304,6 +304,11 @@ let g:hardtime_default_on = 0
 let g:DiffColors = 100
 
 
+
+" rhysd/git-messenger.vim
+let g:git_messenger_always_into_popup = v:true
+
+
 " vim-emoji
 let g:gitgutter_sign_added = emoji#for('arrow_forward')
 let g:gitgutter_sign_modified = emoji#for('arrow_right_hook')
