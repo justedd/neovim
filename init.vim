@@ -75,6 +75,7 @@ Plug 'rickhowe/diffchar.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
