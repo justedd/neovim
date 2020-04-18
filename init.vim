@@ -76,6 +76,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
@@ -307,6 +308,12 @@ let g:DiffColors = 100
 
 " rhysd/git-messenger.vim
 let g:git_messenger_always_into_popup = v:true
+
+"junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " vim-emoji
