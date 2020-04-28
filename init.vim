@@ -12,6 +12,7 @@ set relativenumber
 set diffopt+=vertical
 
 let mapleader=" "
+let maplocalleader="  "
 
 " highlight wide lines
 let &colorcolumn=join(range(81,999),",")
@@ -42,7 +43,7 @@ cnoremap <C-e> <End>
 nmap Q q
 nnoremap K <noop>
 
-nnoremap <Leader><Leader> <C-^>
+" nnoremap <Leader><Leader> <C-^>
 
 " Commnands
 command! InsertTime :normal a<C-R>=strftime('%F %H:%M')<CR>
@@ -74,7 +75,7 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'rickhowe/diffchar.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'vim-scripts/vim-auto-save'
+" Plug 'vim-scripts/vim-auto-save'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
 
@@ -82,6 +83,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
 
 Plug 'rhysd/git-messenger.vim'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'noprompt/vim-yardoc'
 
 "additional modes
 Plug 'simeji/winresizer'
@@ -155,6 +160,7 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 Plug 'sodapopcan/vim-twiggy'
+Plug 'rbong/vim-flog'
 
 
 " File browsing
@@ -198,8 +204,8 @@ endif
 let g:NERDSpaceDelims = 1
 let NERDTreeCascadeSingleChildDir = 0
 let NERDTreeQuitOnOpen = 1
-nmap <Leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<cr>
+nmap <Leader>nn :NERDTree<CR>
+map <leader>nf :NERDTreeFind<cr>
 
 if has('autocmd')
   augroup WincentNERDTree
@@ -323,6 +329,10 @@ let g:gitgutter_sign_removed = emoji#for('arrow_backward')
 let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
 
 
+"plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
+
 " neoclide/coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -347,3 +357,11 @@ hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 nmap <C-H> :call mappings#cycle_highlight() <CR>
 
 let g:find_files_findprg = 'fd --hidden $* $d'
+
+echo "(ノ°ο°)ノ"
+
+
+" upcase word
+" inoremap <c-u> <esc>viWUEa
+" nnoremap <c-u> viWU
+
