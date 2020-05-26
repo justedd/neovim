@@ -6,6 +6,9 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+set splitbelow
+set splitright
+
 set number
 set relativenumber
 
@@ -80,6 +83,8 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
 
+Plug 'tpope/vim-speeddating'
+
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
 
@@ -127,6 +132,8 @@ Plug 'wincent/terminus'
 
 " temporary
 Plug 'takac/vim-hardtime'
+Plug 'ThePrimeagen/vim-be-good'
+
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -165,9 +172,14 @@ Plug 'rbong/vim-flog'
 
 
 " File browsing
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+Plug 'justinmk/vim-dirvish'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
+Plug 'pbrisbin/vim-mkdir'
 
 
 " UI
@@ -208,14 +220,15 @@ let NERDTreeQuitOnOpen = 1
 nmap <Leader>nn :NERDTree<CR>
 map <leader>nf :NERDTreeFind<cr>
 
-if has('autocmd')
-  augroup WincentNERDTree
-    autocmd!
-    autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
-  augroup END
-endif
-" Like vim-vinegar.
-nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+" replaced by dirvish
+" if has('autocmd')
+  " augroup WincentNERDTree
+    " autocmd!
+    " autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
+  " augroup END
+" endif
+" " Like vim-vinegar.
+" nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
 let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 
@@ -348,6 +361,16 @@ function! s:show_documentation()
   endif
 endfunction
 
+" dirvish.vim
+let g:dirvish_mode = ':sort ,^.*[\/],'
+" nnoremap <leader>f :Dirvish
+
+let g:ranger_map_keys = 0
+
+" Find?
+nnoremap <leader>f :Find <C-r><C-w><CR> :copen<CR><CR>
+
+
 " ========================================
 " Post Initialize
 " ========================================
@@ -360,6 +383,8 @@ nmap <C-H> :call mappings#cycle_highlight() <CR>
 let g:find_files_findprg = 'fd --hidden $* $d'
 
 echo "(ノ°ο°)ノ"
+
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
 
 
 " upcase word
