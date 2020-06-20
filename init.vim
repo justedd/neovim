@@ -25,6 +25,15 @@ set directory=~/.vim/backup/
 
 nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
 
+nnoremap <leader>vc :set conceallevel=0<cr>
+
+nnoremap <leader>vm :VcsJump merge<cr>
+nnoremap <leader>vd :VcsJump diff<cr>
+
+
+" g:python_host_prog = "/usr/bin/python2"
+" g:python_host_prog = "/usr/bin/python2"
+
 " try to use folding again
 set foldmethod=indent
 autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
@@ -70,7 +79,8 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
 Plug 'andrewradev/splitjoin.vim'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -83,7 +93,11 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
 
+Plug 'machakann/vim-highlightedyank'
+
 Plug 'tpope/vim-speeddating'
+
+Plug 'junegunn/goyo.vim'
 
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
@@ -109,6 +123,7 @@ Plug 'junegunn/vim-emoji'
 " DB
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'markonm/traces.vim'
 
@@ -132,7 +147,7 @@ Plug 'wincent/terminus'
 
 " temporary
 Plug 'takac/vim-hardtime'
-Plug 'ThePrimeagen/vim-be-good'
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 
 " languages
@@ -234,7 +249,8 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 " junegunn/fzf.vim
 nmap <Leader>p :FZF<CR>
-nmap <Leader>P :Ag<CR>
+nmap <Leader>i :Buffers<CR>
+nmap <Leader>o :Ag<CR>
 " nmap <Leader>m :FZFMru<CR>
 
 let g:loaded_matchparen=1
@@ -284,6 +300,8 @@ call yankstack#setup()
 " bling/vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -370,6 +388,8 @@ let g:ranger_map_keys = 0
 " Find?
 nnoremap <leader>f :Find <C-r><C-w><CR> :copen<CR><CR>
 
+" highli yank
+let g:highlightedyank_highlight_duration = 150
 
 " ========================================
 " Post Initialize
@@ -384,7 +404,14 @@ let g:find_files_findprg = 'fd --hidden $* $d'
 
 echo "(ノ°ο°)ノ"
 
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
+
+nnoremap <leader>ve :tabe $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+" g:indentLine_bufNameExclude = ['_.md']
+let g:indentLine_fileTypeExclude = ['markdown']
+
+" vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
 
 " upcase word
