@@ -21,7 +21,7 @@ hi def link rubyTestMacro                   rubyMacro
 hi def link rubyMacro                       Macro
 
 if s:path =~# '/spec/.*_spec\.rb$'
-  syn keyword rubyTestMacro fdescribe fit let_it_be before_all
+  syn keyword rubyTestMacro fdescribe fcontext fit let_it_be before_all
 endif
 
 
@@ -35,5 +35,5 @@ if s:path =~# '/spec/support/.*\.rb$'
   syn keyword rubyComment xcontext xdescribe xfeature containedin=rubyKeywordAsMethod
   syn keyword rubyComment xit xexample xspecify xscenario
 
-  syn keyword rubyTestMacro fdescribe fit let_it_be before_all
+  syn keyword rubyTestMacro fdescribe fit let_it_be before_all fcontext
 endif

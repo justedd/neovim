@@ -68,7 +68,8 @@ map <leader>S :syntax sync fromstart<CR>
 " ========================================
 call plug#begin('~/.local/share/nvim/plugged')
 
-" code features
+
+" random typing improvement stuff
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -79,7 +80,6 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
 Plug 'andrewradev/splitjoin.vim'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'cohama/lexima.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
@@ -89,68 +89,38 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'rickhowe/diffchar.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
-" Plug 'vim-scripts/vim-auto-save'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
-
 Plug 'machakann/vim-highlightedyank'
-
 Plug 'tpope/vim-speeddating'
-
-Plug 'junegunn/goyo.vim'
-
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
+Plug 'junegunn/vim-peekaboo'
+Plug 'vim-scripts/loremipsum'
+Plug 'yssl/QFEnter' " more sensable opening files from quick find list
+Plug 'junegunn/vim-emoji' " emoji support
+Plug 'markonm/traces.vim' " highlight matches in some commands
+Plug 'wincent/terminus' " Terminal worsk fine
 
-Plug 'rhysd/git-messenger.vim'
+" REPL
+Plug 'jpalardy/vim-slime'
 
-Plug 'rust-lang/rust.vim'
-
-Plug 'noprompt/vim-yardoc'
-
-"additional modes
-Plug 'simeji/winresizer'
-
-Plug 'wincent/vcs-jump'
-
-Plug 'wincent/ferret'
-
-
-Plug 'yssl/QFEnter'
-
-Plug 'junegunn/vim-emoji'
 
 " DB
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
-Plug 'markonm/traces.vim'
-
-" external features
-Plug 'lervag/vimtex'
-Plug 'rhysd/vim-grammarous'
-Plug 'weirongxu/plantuml-previewer.vim'
-Plug 'tyru/open-browser.vim'
-
-" LSP
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-" autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-" some great stuff
-Plug 'wincent/terminus'
 
 " temporary
 Plug 'takac/vim-hardtime'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 
-" languages
+" languages && frameworks
+Plug 'noprompt/vim-yardoc'
+Plug 'rust-lang/rust.vim'
+Plug 'stevearc/vim-arduino'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
 Plug 'JulesWang/css.vim'
@@ -163,27 +133,35 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
 Plug 'jparise/vim-graphql'
 Plug 'Glench/Vim-Jinja2-Syntax'
-
-" frameworks
+Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tpope/vim-rails'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 
-" lint
+" code utilites
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'w0rp/ale'
+Plug 'metakirby5/codi.vim'
+Plug 'SirVer/ultisnips'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
-" external utils
+" FZF and friends
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'antoinemadec/coc-fzf'
+Plug 'wincent/vcs-jump'
+Plug 'wincent/ferret'
 
-
-" git utils
+" Git
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rhubarb'
-Plug 'sodapopcan/vim-twiggy'
-Plug 'rbong/vim-flog'
+Plug 'tpope/vim-rhubarb' " allows to used :Gbrowse for GitHub
+Plug 'rhysd/git-messenger.vim'
 
 
 " File browsing
@@ -192,9 +170,14 @@ Plug 'justinmk/vim-dirvish'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+
+" Verification needed
+"Plug 'rbgrouleff/bclose.vim'
+"Plug 'tyru/open-browser.vim'
+" Plug 'hardcoreplayers/dashboard-nvim'
 
 Plug 'pbrisbin/vim-mkdir'
+Plug 'embear/vim-localvimrc'
 
 
 " UI
@@ -202,18 +185,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'simeji/winresizer'
 
-
-" vim stuff
-Plug 'embear/vim-localvimrc'
-
-
-" scratch-pad
-Plug 'metakirby5/codi.vim'
-
-
-" snippets
-Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -227,6 +200,8 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+" trailing whitespace
+let g:extra_whitespace_ignored_filetypes = ['sql', 'dbout']
 
 " scrooloose/nerdtree
 let g:NERDSpaceDelims = 1
@@ -235,15 +210,6 @@ let NERDTreeQuitOnOpen = 1
 nmap <Leader>nn :NERDTree<CR>
 map <leader>nf :NERDTreeFind<cr>
 
-" replaced by dirvish
-" if has('autocmd')
-  " augroup WincentNERDTree
-    " autocmd!
-    " autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
-  " augroup END
-" endif
-" " Like vim-vinegar.
-" nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
 let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 
@@ -255,8 +221,6 @@ nmap <Leader>o :Ag<CR>
 
 let g:loaded_matchparen=1
 " nnoremap <silent> <Leader>m :execute (exists('g:loaded_matchparen') ? 'No' : 'Do') . 'MatchParen'<CR>
-
-let g:fzf_layout = { 'down': '~20%' }
 
 " w0rp/ale
 let g:ale_fixers = {
@@ -324,9 +288,6 @@ let g:LanguageClient_serverCommands = {
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_silent = 1
 
-" lervag/vimtex
-nmap <leader>g :GrammarousCheck<CR>
-
 " tpope/vim-eunuch
 nmap <leader>w :Wall<CR>
 
@@ -391,6 +352,11 @@ nnoremap <leader>f :Find <C-r><C-w><CR> :copen<CR><CR>
 " highli yank
 let g:highlightedyank_highlight_duration = 150
 
+
+"you-are-here
+" nnoremap <silent> <leader>here :call you_are_here#Toggle()<CR>
+
+
 " ========================================
 " Post Initialize
 " ========================================
@@ -402,19 +368,63 @@ nmap <C-H> :call mappings#cycle_highlight() <CR>
 
 let g:find_files_findprg = 'fd --hidden $* $d'
 
+let g:peekaboo_window = "vert rightb 50new"
+
+" let g:rainbow_active = 1
+
+
 echo "(ノ°ο°)ノ"
 
 
 nnoremap <leader>ve :tabe $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
+onoremap n /return<cr>
+
 " g:indentLine_bufNameExclude = ['_.md']
 let g:indentLine_fileTypeExclude = ['markdown']
 
-" vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+
+" coc-fzf
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+let g:coc_fzf_preview = 'right:50%'
+
+" fugitive
+nmap <leader>gs :G<cr>
+nmap <leader>gr :diffget //3<cr>
+nmap <leader>gl :diffget //2<cr>
+nmap <leader>gc :GCheckout<cr>
 
 
-" upcase word
-" inoremap <c-u> <esc>viWUEa
-" nnoremap <c-u> viWU
+" dashobard.nvim
+" let g:dashboard_default_executive ='fzf'
+" let g:dashboard_default_header='cres'
+
+
+" augroup filetype_html
+  " autocmd!
+  " autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+" augroup END
+"
+
+let g:slime_target = "tmux"
+let g:arduino_use_slime = 1
+
+onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
+
+
+
+
+" try to reload buffers onc heckout
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+
+au FileChangedShell * call FCSHandler(expand("<afile>:p"))
+function FCSHandler(name)
+  if v:fcs_reason == "deleted"
+    call setbufvar(expand(a:name), '&modifiable', '0')
+    call setbufvar(expand(a:name), '&ro', '1')
+  endif
+endfunction
 
