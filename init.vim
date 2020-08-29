@@ -214,7 +214,8 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 
 " junegunn/fzf.vim
-nmap <Leader>p :FZF<CR>
+" nmap <Leader>p :FZF<CR>
+nmap <Leader>p :FzfPreviewProjectFiles<cr>
 nmap <Leader>i :Buffers<CR>
 nmap <Leader>o :Ag<CR>
 " nmap <Leader>m :FZFMru<CR>
@@ -389,6 +390,15 @@ let g:indentLine_fileTypeExclude = ['markdown']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 let g:coc_fzf_preview = 'right:50%'
 
+let g:fzf_preview_window = 'right:50%'
+
+let g:fzf_preview_default_fzf_options = { '--bind': '?:toggle-preview' }
+
+let g:fzf_preview_use_dev_icons = 1
+let g:fzf_preview_dev_icon_prefix_string_length = 3
+let g:fzf_preview_dev_icons_limit = 100
+
+
 " fugitive
 nmap <leader>gs :G<cr>
 nmap <leader>gr :diffget //3<cr>
@@ -412,9 +422,6 @@ let g:arduino_use_slime = 1
 
 onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
 
-
-
-
 " try to reload buffers onc heckout
 " trigger `autoread` when files changes on disk
 set autoread
@@ -427,4 +434,3 @@ function FCSHandler(name)
     call setbufvar(expand(a:name), '&ro', '1')
   endif
 endfunction
-
