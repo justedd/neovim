@@ -6,6 +6,9 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" automatic reload files
+set autoread
+
 set splitbelow
 set splitright
 
@@ -396,7 +399,7 @@ let g:fzf_preview_default_fzf_options = { '--bind': '?:toggle-preview' }
 
 let g:fzf_preview_use_dev_icons = 1
 let g:fzf_preview_dev_icon_prefix_string_length = 3
-let g:fzf_preview_dev_icons_limit = 100
+let g:fzf_preview_dev_icons_limit = 10000
 
 
 " fugitive
@@ -422,15 +425,25 @@ let g:arduino_use_slime = 1
 
 onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
 
-" try to reload buffers onc heckout
-" trigger `autoread` when files changes on disk
-set autoread
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 
-au FileChangedShell * call FCSHandler(expand("<afile>:p"))
+
+
 function FCSHandler(name)
   if v:fcs_reason == "deleted"
     call setbufvar(expand(a:name), '&modifiable', '0')
     call setbufvar(expand(a:name), '&ro', '1')
   endif
 endfunction
+
+augroup gitReload
+  autocmd!
+  " try to reload buffers onc heckout
+  " trigger `autoread` when files changes on disk
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  autocmd FileChangedShell * call FCSHandler(expand("<afile>:p"))
+augroup END
+
+" fzf color experiments
+
+" let g:fzf_preview_fzf_color_option = 'bg+:#282a2e,bg:#1d1f21,spinner:#8abeb7,hl:#81a2be,fg:#b4b7b4,header:#81a2be,info:#f0c674,pointer:#8abeb7,marker:#8abeb7,fg+:#e0e0e0,prompt:#f0c674,hl+:#81a2be'
+ " --color=bg+:#282a2e,bg:#1d1f21,spinner:#8abeb7,hl:#81a2be --color=fg:#b4b7b4,header:#81a2be,info:#f0c674,pointer:#8abeb7 --color=marker:#8abeb7,fg+:#e0e0e0,prompt:#f0c674,hl+:#81a2be
