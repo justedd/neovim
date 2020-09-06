@@ -30,16 +30,8 @@ nnoremap <silent> <leader>r :call mappings#cycle_numbering() <CR>
 
 nnoremap <leader>vc :set conceallevel=0<cr>
 
-nnoremap <leader>vm :VcsJump merge<cr>
-nnoremap <leader>vd :VcsJump diff<cr>
-
-
-" g:python_host_prog = "/usr/bin/python2"
-" g:python_host_prog = "/usr/bin/python2"
-
-" try to use folding again
 set foldmethod=indent
-autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+set foldlevelstart=99
 
 set fillchars=fold:\ 
 
@@ -58,21 +50,14 @@ cnoremap <C-e> <End>
 nmap Q q
 nnoremap K <noop>
 
-" nnoremap <Leader><Leader> <C-^>
-
-" Commnands
-command! InsertTime :normal a<C-R>=strftime('%F %H:%M')<CR>
-command! Tfold :normal :call mappings#toggle_fold() <CR>
-
 map <leader>S :syntax sync fromstart<CR>
 
-" ========================================
-" Plug
-" ========================================
+" Plugins delcarations ---- {{{
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 
-" random typing improvement stuff
+" Random Vim features -----{{{
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -92,7 +77,6 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'rickhowe/diffchar.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-speeddating'
@@ -104,23 +88,22 @@ Plug 'yssl/QFEnter' " more sensable opening files from quick find list
 Plug 'junegunn/vim-emoji' " emoji support
 Plug 'markonm/traces.vim' " highlight matches in some commands
 Plug 'wincent/terminus' " Terminal worsk fine
-
-" REPL
-Plug 'jpalardy/vim-slime'
+" }}}
 
 
-" DB
+" DB Plugins -------------------------------------------------------{{{
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-dadbod-ui'
+" }}}
 
-
-" temporary
+" Vim learning {{{
 Plug 'takac/vim-hardtime'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+" }}}
 
 
-" languages && frameworks
+" language && framework Plugins ------------------------------------{{{
 Plug 'noprompt/vim-yardoc'
 Plug 'rust-lang/rust.vim'
 Plug 'stevearc/vim-arduino'
@@ -140,9 +123,12 @@ Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tpope/vim-rails'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
+Plug 'ekalinin/Dockerfile.vim'
+" }}}
 
-" code utilites
+" Competition & syntax & snippetsa ------------------------------- {{{
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'antoinemadec/coc-fzf'
 Plug 'w0rp/ale'
 Plug 'metakirby5/codi.vim'
 Plug 'SirVer/ultisnips'
@@ -150,29 +136,33 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+" }}}
 
-" FZF and friends
+Plug 'jpalardy/vim-slime' " REPL
+
+" File browsing ------------------------------------------------------ {{{
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'antoinemadec/coc-fzf'
-Plug 'wincent/vcs-jump'
+Plug 'justinmk/vim-dirvish'
+Plug 'ryanoasis/vim-devicons'
+Plug 'francoiscabrol/ranger.vim'
+" }}}
+
 Plug 'wincent/ferret'
 
-" Git
+" Git Plugins ------------------------------------------------------{{{
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb' " allows to used :Gbrowse for GitHub
 Plug 'rhysd/git-messenger.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'wincent/vcs-jump'
+" }}}
 
 
-" File browsing
-" Plug 'scrooloose/nerdtree'
-Plug 'justinmk/vim-dirvish'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'francoiscabrol/ranger.vim'
+" File browsing Plugins --------------------------------------------{{{
+" }}}
 
 " Verification needed
 "Plug 'rbgrouleff/bclose.vim'
@@ -190,8 +180,8 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'simeji/winresizer'
 
-
 call plug#end()
+" }}}
 
 " ========================================
 " Plugin specific sttings
@@ -265,19 +255,16 @@ nmap <leader>j <Plug>yankstack_substitute_newer_paste
 call yankstack#setup()
 
 
-" bling/vim-airline
+" Statusline settings {{{
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
-
-
-" vim-airline/vim-airline-themes
 let g:airline_theme='base16_default'
+" }}}
 
 
 " autozimu/LanguageClient-neovim
@@ -379,7 +366,6 @@ let g:peekaboo_window = "vert rightb 50new"
 
 echo "(ノ°ο°)ノ"
 
-
 nnoremap <leader>ve :tabe $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
@@ -402,32 +388,24 @@ let g:fzf_preview_dev_icon_prefix_string_length = 3
 let g:fzf_preview_dev_icons_limit = 10000
 
 
-" fugitive
-nmap <leader>gs :G<cr>
-nmap <leader>gr :diffget //3<cr>
-nmap <leader>gl :diffget //2<cr>
-nmap <leader>gc :GCheckout<cr>
-
-
-" dashobard.nvim
-" let g:dashboard_default_executive ='fzf'
-" let g:dashboard_default_header='cres'
-
-
-" augroup filetype_html
-  " autocmd!
-  " autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
-" augroup END
-"
-
 let g:slime_target = "tmux"
 let g:arduino_use_slime = 1
 
 onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
 
 
+" Git workflow -------------------------------------------------------{{{
 
+" fugitive
+nnoremap <leader>gs :G<cr>
+nnoremap <leader>gr :diffget //3<cr>
+nnoremap <leader>gl :diffget //2<cr>
+nnoremap <leader>gc :GCheckout<cr>
 
+nnoremap <leader>vm :VcsJump merge<cr>
+nnoremap <leader>vd :VcsJump diff<cr>
+
+" Handler for file change outsite of Vim
 function FCSHandler(name)
   if v:fcs_reason == "deleted"
     call setbufvar(expand(a:name), '&modifiable', '0')
@@ -442,8 +420,14 @@ augroup gitReload
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
   autocmd FileChangedShell * call FCSHandler(expand("<afile>:p"))
 augroup END
+" }}}
 
-" fzf color experiments
 
-" let g:fzf_preview_fzf_color_option = 'bg+:#282a2e,bg:#1d1f21,spinner:#8abeb7,hl:#81a2be,fg:#b4b7b4,header:#81a2be,info:#f0c674,pointer:#8abeb7,marker:#8abeb7,fg+:#e0e0e0,prompt:#f0c674,hl+:#81a2be'
- " --color=bg+:#282a2e,bg:#1d1f21,spinner:#8abeb7,hl:#81a2be --color=fg:#b4b7b4,header:#81a2be,info:#f0c674,pointer:#8abeb7 --color=marker:#8abeb7,fg+:#e0e0e0,prompt:#f0c674,hl+:#81a2be
+" Filetypes -------------------------------------------------------{{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim setlocal foldlevelstart=0
+  autocmd FileType vim setlocal foldlevel=0
+augroup END
+" }}}
