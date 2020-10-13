@@ -22,6 +22,7 @@ hi def link rubyMacro                       Macro
 
 if s:path =~# '/spec/.*_spec\.rb$'
   syn keyword rubyTestMacro fdescribe fcontext fit let_it_be before_all
+  syn keyword rubyTestMacro create build build_stubbed
 endif
 
 if s:path =~# '/graphql/.*\.rb$'
@@ -36,6 +37,7 @@ if s:path =~# '/spec/support/.*\.rb$'
   syn keyword rubyTestMacro before after around background setup teardown
   syn keyword rubyTestMacro context describe feature shared_context shared_examples shared_examples_for containedin=rubyKeywordAsMethod
   syn keyword rubyTestMacro it example specify scenario include_examples include_context it_should_behave_like it_behaves_like
+  syn keyword rubyTestMacro create build build_stubbed
   syn keyword rubyComment xcontext xdescribe xfeature containedin=rubyKeywordAsMethod
   syn keyword rubyComment xit xexample xspecify xscenario
 

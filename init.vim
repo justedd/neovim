@@ -32,6 +32,7 @@ nnoremap <leader>vc :set conceallevel=0<cr>
 
 set foldmethod=indent
 set foldlevelstart=99
+set foldlevel=99
 
 set fillchars=fold:\ 
 
@@ -55,6 +56,8 @@ map <leader>S :syntax sync fromstart<CR>
 " Plugins delcarations ---- {{{
 
 call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'morhetz/gruvbox'
 
 
 " Random Vim features -----{{{
@@ -88,6 +91,7 @@ Plug 'yssl/QFEnter' " more sensable opening files from quick find list
 Plug 'junegunn/vim-emoji' " emoji support
 Plug 'markonm/traces.vim' " highlight matches in some commands
 Plug 'wincent/terminus' " Terminal worsk fine
+Plug 'chrisbra/NrrwRgn' " focus text
 " }}}
 
 
@@ -99,7 +103,7 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 
 " Vim learning {{{
 Plug 'takac/vim-hardtime'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+" Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 " }}}
 
 
@@ -127,7 +131,7 @@ Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
 " Competition & syntax & snippetsa ------------------------------- {{{
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'w0rp/ale'
 Plug 'metakirby5/codi.vim'
@@ -177,7 +181,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'simeji/winresizer'
 
 call plug#end()
@@ -188,10 +192,10 @@ call plug#end()
 " ========================================
 
 " chriskempson/base16-vim
-if filereadable(expand("~/.vimrc_background"))
-  set termguicolors
-  source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+  " set termguicolors
+  " source ~/.vimrc_background
+" endif
 
 " trailing whitespace
 let g:extra_whitespace_ignored_filetypes = ['sql', 'dbout']
@@ -263,7 +267,6 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme='base16_default'
 " }}}
 
 
@@ -340,6 +343,11 @@ let g:ranger_map_keys = 0
 " Find?
 nnoremap <leader>f :Find <C-r><C-w><CR> :copen<CR><CR>
 
+
+" drop all buffers
+command! BufOnly execute '%bdelete|edit #|normal `"'
+
+
 " highli yank
 let g:highlightedyank_highlight_duration = 150
 
@@ -353,7 +361,7 @@ let g:highlightedyank_highlight_duration = 150
 " ========================================
 
 " hide tilde characters at the line numbers
-hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+" hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 nmap <C-H> :call mappings#cycle_highlight() <CR>
 
@@ -431,3 +439,23 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldlevel=0
 augroup END
 " }}}
+
+" set t_ZH=[3m
+" set t_ZR=[23m
+
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
+let g:gruvbox_italic=1
+let g:gruvbox_invert_tabline=1
+autocmd vimenter * colorscheme gruvbox
+highlight Comment cterm=italic
+colorscheme gruvbox
+
+" right
+autocmd VimEnter * hi! link airline_tablabel_right airline_tabtype
+" left
+autocmd VimEnter * hi! link airline_tablabel airline_tabtype
