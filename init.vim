@@ -51,7 +51,7 @@ cnoremap <C-e> <End>
 nmap Q q
 nnoremap K <noop>
 
-map <leader>S :syntax sync fromstart<CR>
+map <leader>S :syntax sync fromstart<CR>:set background=dark<CR>
 
 " Plugins delcarations ---- {{{
 
@@ -181,8 +181,10 @@ Plug 'embear/vim-localvimrc'
 Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'simeji/winresizer'
+
+" Plug 'ap/vim-buftabline'
+
 
 call plug#end()
 " }}}
@@ -449,13 +451,19 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 
+set background=dark
 let g:gruvbox_italic=1
-let g:gruvbox_invert_tabline=1
-autocmd vimenter * colorscheme gruvbox
+
+" autocmd vimenter * colorscheme gruvbox
 highlight Comment cterm=italic
 colorscheme gruvbox
 
-" right
-autocmd VimEnter * hi! link airline_tablabel_right airline_tabtype
-" left
-autocmd VimEnter * hi! link airline_tablabel airline_tabtype
+autocmd vimenter * colorscheme gruvbox
+
+" autocmd BufEnter * execute "normal! :set background=dark\r"
+" autocmd vimenter * call ToggleTheme()
+
+" " right
+" autocmd VimEnter * hi! link airline_tablabel_right airline_tabtype
+" " left
+" autocmd VimEnter * hi! link airline_tablabel airline_tabtype
