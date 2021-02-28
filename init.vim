@@ -34,6 +34,8 @@ set foldmethod=indent
 set foldlevelstart=99
 set foldlevel=99
 
+set fdo-=search
+
 set fillchars=fold:\ 
 
 " system clipboard
@@ -85,7 +87,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 Plug 'vim-scripts/loremipsum'
 Plug 'yssl/QFEnter' " more sensable opening files from quick find list
 Plug 'junegunn/vim-emoji' " emoji support
@@ -147,8 +149,10 @@ Plug 'jpalardy/vim-slime' " REPL
 " File browsing ------------------------------------------------------ {{{
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/fzf-mru.vim'
 Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'ryanoasis/vim-devicons'
 Plug 'francoiscabrol/ranger.vim'
 " }}}
@@ -173,7 +177,7 @@ Plug 'wincent/vcs-jump'
 "Plug 'tyru/open-browser.vim'
 " Plug 'hardcoreplayers/dashboard-nvim'
 
-Plug 'pbrisbin/vim-mkdir'
+" Plug 'pbrisbin/vimmkdir'
 Plug 'embear/vim-localvimrc'
 
 
@@ -214,6 +218,7 @@ let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 " junegunn/fzf.vim
 " nmap <Leader>p :FZF<CR>
+" nmap <Leader>p :FzfPreviewProjectFiles<cr>
 nmap <Leader>p :FzfPreviewProjectFiles<cr>
 nmap <Leader>i :Buffers<CR>
 nmap <Leader>o :Ag<CR>
@@ -369,7 +374,7 @@ nmap <C-H> :call mappings#cycle_highlight() <CR>
 
 let g:find_files_findprg = 'fd --hidden $* $d'
 
-let g:peekaboo_window = "vert rightb 50new"
+" let g:peekaboo_window = "vert rightb 50new"
 
 " let g:rainbow_active = 1
 
@@ -379,7 +384,17 @@ echo "(ノ°ο°)ノ"
 nnoremap <leader>ve :tabe $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
+nnoremap <leader>ms :Gvsplit master:%<cr>
+
 onoremap n /return<cr>
+
+
+" execute "set <M-j>=\ej"
+" nnoremap <M-j> vs<cr>
+:map <A-k> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
+:map <A-j> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
+:map <A-h> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
+
 
 " g:indentLine_bufNameExclude = ['_.md']
 let g:indentLine_fileTypeExclude = ['markdown']
