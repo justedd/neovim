@@ -9,8 +9,8 @@ set tabstop=2
 " automatic reload files
 set autoread
 
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 
 set number
 set relativenumber
@@ -59,8 +59,8 @@ map <leader>S :syntax sync fromstart<CR>:set background=dark<CR>
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'morhetz/gruvbox'
 
+Plug 'morhetz/gruvbox'
 
 " Random Vim features -----{{{
 Plug 'scrooloose/nerdcommenter'
@@ -87,14 +87,16 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 Plug 'samoshkin/vim-find-files'
-" Plug 'junegunn/vim-peekaboo'
 Plug 'vim-scripts/loremipsum'
-Plug 'yssl/QFEnter' " more sensable opening files from quick find list
+" Plug 'yssl/QFEnter' " more sensable opening files from quick find list
+" Plug 'romainl/vim-qf' " quick fix improvements
 Plug 'junegunn/vim-emoji' " emoji support
 Plug 'markonm/traces.vim' " highlight matches in some commands
 Plug 'wincent/terminus' " Terminal worsk fine
 Plug 'chrisbra/NrrwRgn' " focus text
 " }}}
+
+Plug 'Chiel92/vim-autoformat'
 
 
 " DB Plugins -------------------------------------------------------{{{
@@ -159,6 +161,9 @@ Plug 'francoiscabrol/ranger.vim'
 
 Plug 'wincent/ferret'
 
+
+Plug 'lyokha/vim-xkbswitch'
+
 " Git Plugins ------------------------------------------------------{{{
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -166,6 +171,7 @@ Plug 'tpope/vim-rhubarb' " allows to used :Gbrowse for GitHub
 Plug 'rhysd/git-messenger.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'wincent/vcs-jump'
+Plug 'APZelos/blamer.nvim'
 " }}}
 
 
@@ -186,6 +192,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
 Plug 'simeji/winresizer'
+Plug 'psliwka/vim-smoothie'
 
 " Plug 'ap/vim-buftabline'
 
@@ -254,8 +261,9 @@ set updatetime=100
 
 
 " Yggdroot/indentLine
-let g:indentLine_color_gui = '#333333'
+let g:indentLine_color_gui = '#444444'
 let g:indentLine_faster = 0
+let g:indentLine_char = '▏'
 
 
 " maxbrunsfeld/vim-yankstack
@@ -391,9 +399,13 @@ onoremap n /return<cr>
 
 " execute "set <M-j>=\ej"
 " nnoremap <M-j> vs<cr>
-:map <A-k> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
-:map <A-j> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
-:map <A-h> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
+map <A-i> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
+map <A-u> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
+map <A-y> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
+map <A-o> :silent exec "!tmux send-keys -t guard.1 C-c"<cr>
+
+nnoremap <A-j> :cnext <cr>
+nnoremap <A-k> :cprev <cr>
 
 
 " g:indentLine_bufNameExclude = ['_.md']
@@ -412,6 +424,9 @@ let g:fzf_preview_use_dev_icons = 1
 let g:fzf_preview_dev_icon_prefix_string_length = 3
 let g:fzf_preview_dev_icons_limit = 10000
 
+" ferret
+let g:FerretAutojump=2
+
 
 let g:slime_target = "tmux"
 let g:arduino_use_slime = 1
@@ -425,7 +440,7 @@ onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gr :diffget //3<cr>
 nnoremap <leader>gl :diffget //2<cr>
-nnoremap <leader>gc :GCheckout<cr>
+nnoremap <leader>gc :GBranches<cr>
 
 nnoremap <leader>vm :VcsJump merge<cr>
 nnoremap <leader>vd :VcsJump diff<cr>
@@ -475,6 +490,27 @@ colorscheme gruvbox
 
 autocmd vimenter * colorscheme gruvbox
 
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END
+
+
+" some test
+set dir=/tmp//
+
+
+noremap <Leader>F :Autoformat<CR>
+
+" xcb switch
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
+let g:XkbSwitchAssistSKeymap = 1    " for search lines
+let g:XkbSwitchDynamicKeymap = 1
+
+
+
 " autocmd BufEnter * execute "normal! :set background=dark\r"
 " autocmd vimenter * call ToggleTheme()
 
@@ -482,3 +518,6 @@ autocmd vimenter * colorscheme gruvbox
 " autocmd VimEnter * hi! link airline_tablabel_right airline_tabtype
 " " left
 " autocmd VimEnter * hi! link airline_tablabel airline_tabtype
+"
+"
+"
