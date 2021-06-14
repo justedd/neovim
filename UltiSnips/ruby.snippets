@@ -42,6 +42,14 @@ do |${1:args}|
 end
 endsnippet
 
+snippet gqsq "successful graphql" w
+it { is_expected.to act_as_successful_graphql_query }
+endsnippet
+
+snippet gqaq "print query execution" w
+fit { ap query_execution }
+endsnippet
+
 snippet { "block oneline" w
 { |${1:args}| ${2:# ...} 
 endsnippet

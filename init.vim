@@ -86,7 +86,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
-Plug 'samoshkin/vim-find-files'
+" Plug 'samoshkin/vim-find-files'
 Plug 'vim-scripts/loremipsum'
 " Plug 'yssl/QFEnter' " more sensable opening files from quick find list
 " Plug 'romainl/vim-qf' " quick fix improvements
@@ -192,7 +192,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'kshenoy/vim-signature'
 Plug 'bling/vim-airline'
 Plug 'simeji/winresizer'
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 
 " Plug 'ap/vim-buftabline'
 
@@ -441,6 +441,7 @@ nnoremap <leader>gs :G<cr>
 nnoremap <leader>gr :diffget //3<cr>
 nnoremap <leader>gl :diffget //2<cr>
 nnoremap <leader>gc :GBranches<cr>
+nnoremap <leader>gb :Git blame<cr>
 
 nnoremap <leader>vm :VcsJump merge<cr>
 nnoremap <leader>vd :VcsJump diff<cr>
@@ -508,6 +509,19 @@ let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
 let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
 let g:XkbSwitchAssistSKeymap = 1    " for search lines
 let g:XkbSwitchDynamicKeymap = 1
+
+
+fun! FindFiles(filename)
+  let error_file = tempname()
+  silent exe '!find . -name "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
+  set errorformat=%f:%l:%m
+  exe "cfile ". error_file
+  copen
+  call delete(error_file)
+endfun
+command! -nargs=1 FindFile call FindFiles(<q-args>)
+
+" hi Normal guibg=NONE ctermbg=NONE
 
 
 
