@@ -87,10 +87,6 @@ Plug 'SirVer/ultisnips'
 Plug 'jpalardy/vim-slime'
 
 " File browsing ------------------------------------------------------ {{{
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
-Plug 'pbogut/fzf-mru.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'ryanoasis/vim-devicons'
@@ -106,7 +102,6 @@ Plug 'airblade/vim-gitgutter'
 
 " allows to used :Gbrowse for GitHub
 Plug 'tpope/vim-rhubarb'
-Plug 'stsewd/fzf-checkout.vim'
 Plug 'wincent/vcs-jump'
 " }}}
 
