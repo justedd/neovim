@@ -59,8 +59,17 @@ map <leader>S :syntax sync fromstart<CR>:set background=dark<CR>
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+"NEOVIM
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+"END OF NEOVIM
 
-Plug 'morhetz/gruvbox'
+
+" Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 " Random Vim features -----{{{
 Plug 'scrooloose/nerdcommenter'
@@ -74,7 +83,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'cohama/lexima.vim'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
@@ -97,6 +106,8 @@ Plug 'chrisbra/NrrwRgn' " focus text
 " }}}
 
 Plug 'Chiel92/vim-autoformat'
+
+Plug 'wincent/scalpel'
 
 
 " DB Plugins -------------------------------------------------------{{{
@@ -261,9 +272,9 @@ set updatetime=100
 
 
 " Yggdroot/indentLine
-let g:indentLine_color_gui = '#444444'
-let g:indentLine_faster = 0
-let g:indentLine_char = '▏'
+" let g:indentLine_color_gui = '#444444'
+" let g:indentLine_faster = 0
+" let g:indentLine_char = '▏'
 
 
 " maxbrunsfeld/vim-yankstack
@@ -298,7 +309,7 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_silent = 1
 
 " tpope/vim-eunuch
-nmap <leader>w :Wall<CR>
+nmap <leader>w :write<CR>
 
 
 " embear/vim-localvimrc
@@ -339,7 +350,7 @@ let g:vim_markdown_folding_disabled = 1
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -399,17 +410,29 @@ onoremap n /return<cr>
 
 " execute "set <M-j>=\ej"
 " nnoremap <M-j> vs<cr>
-map <A-i> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
-map <A-u> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
-map <A-y> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
-map <A-o> :silent exec "!tmux send-keys -t guard.1 C-c"<cr>
+map <A-y> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
+map <A-n> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
 
-nnoremap <A-j> :cnext <cr>
-nnoremap <A-k> :cprev <cr>
+map <A-]> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
+map <A-=> :silent exec "!tmux send-keys -t guard.1 C-c"<cr>
+
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+
+nnoremap <A-7> gT
+nnoremap <A-8> gt
+" nnoremap <A-k> :cprev <cr>
+" nnoremap <A-k> :cprev <cr>
+" nnoremap <A-k> :cprev <cr>
+
+nnoremap <A-m> :cnext <cr>
+nnoremap <A-,> :cprev <cr>
 
 
 " g:indentLine_bufNameExclude = ['_.md']
-let g:indentLine_fileTypeExclude = ['markdown']
+" let g:indentLine_fileTypeExclude = ['markdown']
 
 
 " coc-fzf
@@ -440,7 +463,7 @@ onoremap in@ :<c-u>execute "normal! /\\w*@\\w*\\.\\w*\r:nohlsearch\rviW"<cr>
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gr :diffget //3<cr>
 nnoremap <leader>gl :diffget //2<cr>
-nnoremap <leader>gc :GBranches<cr>
+" nnoremap <leader>gc :GBranches<cr>
 nnoremap <leader>gb :Git blame<cr>
 
 nnoremap <leader>vm :VcsJump merge<cr>
@@ -480,21 +503,32 @@ augroup END
 " let &t_ZR="\e[23m"
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
 
-set background=dark
-let g:gruvbox_italic=1
+if has('termguicolors')
+  set termguicolors
+endif
+
+" let g:gruvbox_italic=1
 
 " autocmd vimenter * colorscheme gruvbox
 highlight Comment cterm=italic
-colorscheme gruvbox
+" colorscheme gruvbox
 
-autocmd vimenter * colorscheme gruvbox
+" autocmd vimenter * colorscheme gruvbox
 
 augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+" set background=light
+set background=dark
+let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_enable_italic = 0
+let g:gruvbox_material_disable_italic_comment = 0
+" let g:gruvbox_material_cursor = 'red'
+colorscheme gruvbox-material
+" let g:lightline.colorscheme = 'gruvbox_material'
 
 
 " some test
@@ -521,8 +555,32 @@ fun! FindFiles(filename)
 endfun
 command! -nargs=1 FindFile call FindFiles(<q-args>)
 
+
+
+let g:ScalpelMap=0
+nmap <Leader>e :set nohlsearch<cr><Plug>(Scalpel)
+
+
+
+"NEOVIM
+" lua require'telescope.builtin'.find_files{}
+
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+" nnoremap <leader>gc :GBranches<cr>
+
+" lua require'telescope.builtin'.git_branches{}
+
+nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
+" builtin.git_branches
+
+let g:indent_blankline_char = '▏'
+" let g:indent_blankline_show_current_context = v:true
+" let g:indent_blankline_char_highlight_list = 1
+
+
 " hi Normal guibg=NONE ctermbg=NONE
 
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 
 " autocmd BufEnter * execute "normal! :set background=dark\r"

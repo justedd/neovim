@@ -1,3 +1,5 @@
 {
+  "cSpellExt.enableDictionaries": ["russian"],
+  "cSpell.language": "en,ru",
   "list.maxPreviewHeight": 25
 }
