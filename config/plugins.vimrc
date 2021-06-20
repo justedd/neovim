@@ -19,7 +19,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'bronson/vim-trailing-whitespace'
+"Plug 'bronson/vim-trailing-whitespace'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
 
@@ -43,7 +43,7 @@ Plug 'wincent/scalpel'
 
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'
-Plug 'cohama/lexima.vim'
+"Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
 
 
@@ -78,10 +78,9 @@ Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
 " Competition & syntax & snippetsa ------------------------------- {{{
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
+"}}}
 
 " REPL
 Plug 'jpalardy/vim-slime'
@@ -106,15 +105,19 @@ Plug 'wincent/vcs-jump'
 " }}}
 
 
-" File browsing Plugins --------------------------------------------{{{
-" }}}
-
 Plug 'embear/vim-localvimrc'
 
 " Display marks(a-z, A-Z) near numbers
 Plug 'kshenoy/vim-signature'
 
 Plug 'bling/vim-airline'
+
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+
+Plug 'windwp/nvim-autopairs'
+Plug 'hrsh7th/nvim-compe'
 
 
 call plug#end()

@@ -116,15 +116,6 @@ let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
 let g:XkbSwitchAssistSKeymap = 1    " for search lines
 let g:XkbSwitchDynamicKeymap = 1
 " }}}
-" antoinemadec/coc-fzf {{{
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-let g:coc_fzf_preview = 'right:50%'
-let g:fzf_preview_window = 'right:50%'
-let g:fzf_preview_default_fzf_options = { '--bind': '?:toggle-preview' }
-let g:fzf_preview_use_dev_icons = 1
-let g:fzf_preview_dev_icon_prefix_string_length = 3
-let g:fzf_preview_dev_icons_limit = 10000
-"}}}
 " sainnhe/gruvbox-material {{{
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_enable_italic = 0
@@ -142,6 +133,31 @@ let g:ScalpelMap=0
 " }}}
 " lukas-reineke/indent-blankline.nvim {{{
 let g:indent_blankline_char = '▏'
+" }}}
+" hrsh7th/nvim-compe {{{
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
 " }}}
 
 set termguicolors
@@ -195,8 +211,12 @@ nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
 nnoremap <leader>f :FindFile <C-r><C-w><CR> :copen<CR><CR>
 nnoremap <leader>w :write<CR>
 
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gr <Plug>(coc-references)
-
 xnoremap ga <Plug>(EasyAlign)
 nnoremap ga <Plug>(EasyAlign)
+
+lua require('justed')
+
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+nnoremap <silent> gd <Cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gR :Lspsaga rename<CR>
