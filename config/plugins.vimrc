@@ -116,8 +116,14 @@ Plug 'bling/vim-airline'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 
-Plug 'windwp/nvim-autopairs'
 Plug 'hrsh7th/nvim-compe'
 
+Plug 'steelsojka/pears.nvim'
+
+Plug 'ray-x/lsp_signature.nvim'
+
+Plug 'Pocco81/TrueZen.nvim'
+
+Plug 'kyazdani42/nvim-web-devicons' " lua
 
 call plug#end()
