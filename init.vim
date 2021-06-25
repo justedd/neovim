@@ -194,6 +194,8 @@ nnoremap <A-7> gT
 nnoremap <A-8> gt
 " }}}
 
+lua require('justed')
+
 nnoremap <A-m> :cnext <cr>
 nnoremap <A-,> :cprev <cr>
 
@@ -206,29 +208,38 @@ nnoremap <leader>gs :G<cr>
 nnoremap <leader>gb :Git blame<cr>
 
 xnoremap <Leader>y "+y
-nnoremap <Leader>e :set nohlsearch<cr><Plug>(Scalpel)
+"nnoremap <Leader>e :set nohlsearch<cr><Plug>(Scalpel)
+" TODO :fix?
+nnoremap <Leader>e <Plug>(Scalpel)
 
 nnoremap <leader>k <Plug>yankstack_substitute_older_paste
 nnoremap <leader>j <Plug>yankstack_substitute_newer_paste
 
 nnoremap <leader>p <cmd>Telescope find_files<cr>
 nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
-nnoremap <leader>f :FindFile <C-r><C-w><CR> :copen<CR><CR>
+"nnoremap <leader>f :FindFile <C-r><C-w><CR> :copen<CR><CR>
+
+nnoremap <leader>fs <cmd>lua require("justed").mappings.telescope_snippets() <CR>
+
+nnoremap <F4> :lua package.loaded.justed = nil<CR>:source ~/.config/nvim/init.vim<CR>
+
 nnoremap <leader>w :write<CR>
+
+nnoremap <leader>s :Telescope grep_string searc=<C-R><C-W><CR>
 
 xnoremap ga <Plug>(EasyAlign)
 nnoremap ga <Plug>(EasyAlign)
 
-lua require('justed')
 
 nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
-nnoremap <silent> gd <Cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd :Telescope lsp_definitions<CR>
+nnoremap <silent> gr :Telescope lsp_references<CR>
 nnoremap <silent> gR :Lspsaga rename<CR>
 
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+"inoremap <silent><expr> <C-Space> compe#complete()
+"inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })

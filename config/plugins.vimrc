@@ -118,12 +118,20 @@ Plug 'glepnir/lspsaga.nvim'
 
 Plug 'hrsh7th/nvim-compe'
 
-Plug 'steelsojka/pears.nvim'
+"Plug 'steelsojka/pears.nvim'
+Plug 'windwp/nvim-autopairs'
 
 Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'Pocco81/TrueZen.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons' " lua
+
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+Plug 'kevinhwang91/rnvimr'
+
+Plug 'fhill2/telescope-ultisnips.nvim'
+
 
 call plug#end()
