@@ -1,5 +1,3 @@
-local saga = require 'lspsaga'
-
 --require'lsp_signature'.on_attach()
 
 -- TODO: understand how to not show the diagnostics
@@ -31,8 +29,6 @@ require'lspconfig'.rust_analyzer.setup{
     )
   },
 }
-
-saga.init_lsp_saga({})
 
 require('telescope').setup {
   defaults = {
