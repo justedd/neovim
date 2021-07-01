@@ -5,24 +5,21 @@ require'lspconfig'.solargraph.setup{
   on_attach = function(client)
     require'lsp_signature'.on_attach()
   end, 
-  settings = {
-    solargraph = {
-      diagnostics = false
-    }
-  }
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        signs = false
+      }
+    )
+  },
 }
 
 require'lspconfig'.rust_analyzer.setup{
   cmd = { "/home/justed/core/apps/rust-analyzer" },
-  --settings = {
-    --["rust-analyzer"] = {
-      --["diagnostics.enable"] = false
-    --}
-  --}
   handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- Disable virtual_text
         virtual_text = false,
         signs = false
       }
@@ -58,5 +55,12 @@ justed.mappings.telescope_snippets = function()
 
   require('telescope').extensions.ultisnips.ultisnips(options)
 end
+
+require('lspsaga').init_lsp_saga({
+  use_saga_diagnostic_sign = false,
+  code_action_prompt = {
+    enable = false,
+  },
+})
 
 return justed

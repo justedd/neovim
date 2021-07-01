@@ -114,6 +114,7 @@ Plug 'bling/vim-airline'
 
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 
 Plug 'hrsh7th/nvim-compe'
 
