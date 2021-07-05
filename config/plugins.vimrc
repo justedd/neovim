@@ -43,7 +43,7 @@ Plug 'wincent/scalpel'
 
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'
-Plug 'cohama/lexima.vim'
+"Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
 
 
@@ -119,7 +119,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 
 "Plug 'steelsojka/pears.nvim'
-"Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-autopairs'
 
 Plug 'ray-x/lsp_signature.nvim'
 
