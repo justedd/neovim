@@ -7,7 +7,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " }}}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'sainnhe/gruvbox-material'
 
