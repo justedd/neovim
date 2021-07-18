@@ -13,8 +13,11 @@ let maplocalleader="  "
 
 let &colorcolumn=join(range(81,999),",") " highlight wide lines
 
-set backupdir=~/.vim/backup/
-set directory=~/.vim/backup/
+set backupdir=~/.vim/backup//
+set directory=~/.vim/backup//
+
+" other way ":Move" causes errors
+"set dir=/tmp//
 
 set foldmethod=indent
 set foldlevelstart=99
@@ -233,9 +236,9 @@ nnoremap ga <Plug>(EasyAlign)
 nnoremap <silent> gd :Telescope lsp_definitions<CR>
 nnoremap <silent> gr :Telescope lsp_references<CR>
 
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <silent><expr> <C-e> compe#close('<C-e>')
+inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
 
 nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>

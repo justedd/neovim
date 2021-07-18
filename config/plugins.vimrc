@@ -12,7 +12,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'sainnhe/gruvbox-material'
 
 " Random Vim features -----{{{
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
@@ -118,7 +117,6 @@ Plug 'glepnir/lspsaga.nvim'
 
 Plug 'hrsh7th/nvim-compe'
 
-"Plug 'steelsojka/pears.nvim'
 Plug 'windwp/nvim-autopairs'
 
 Plug 'ray-x/lsp_signature.nvim'
