@@ -96,7 +96,8 @@ Plug 'lyokha/vim-xkbswitch'
 
 " Git Plugins ------------------------------------------------------{{{
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
+"Plug 'airblade/vim-gitgutter'
 
 " allows to used :Gbrowse for GitHub
 Plug 'tpope/vim-rhubarb'

@@ -51,6 +51,9 @@ local justed = {
   mappings = {}
 }
 
+require('gitsigns').setup()
+
+
 justed.mappings.telescope_snippets = function()
   local options = require('telescope.themes').get_dropdown()
 

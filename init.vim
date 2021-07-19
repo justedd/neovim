@@ -68,7 +68,7 @@ highlight link ALEErrorSign todo
 " }}}
 " airblade/vim-gitgutter ---{{{
 set signcolumn=yes
-set updatetime=100
+"set updatetime=100
 " }}}
 " maxbrunsfeld/vim-yankstack {{{
 let g:yankstack_map_keys = 0
@@ -100,10 +100,10 @@ let g:localvimrc_ask = 0
 let g:DiffColors = 100
 "}}}
 " airblade/vim-gitgutter {{{
-let g:gitgutter_sign_added = emoji#for('arrow_forward')
-let g:gitgutter_sign_modified = emoji#for('arrow_right_hook')
-let g:gitgutter_sign_removed = emoji#for('arrow_backward')
-let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
+"let g:gitgutter_sign_added = emoji#for('arrow_forward')
+"let g:gitgutter_sign_modified = emoji#for('arrow_right_hook')
+"let g:gitgutter_sign_removed = emoji#for('arrow_backward')
+"let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
 "}}}
 "plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
