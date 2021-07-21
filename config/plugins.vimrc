@@ -110,7 +110,9 @@ Plug 'embear/vim-localvimrc'
 " Display marks(a-z, A-Z) near numbers
 Plug 'kshenoy/vim-signature'
 
-Plug 'bling/vim-airline'
+Plug 'akinsho/nvim-bufferline.lua'
+
+"Plug 'bling/vim-airline'
 
 
 Plug 'neovim/nvim-lspconfig'
