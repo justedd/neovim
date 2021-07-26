@@ -112,6 +112,8 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'akinsho/nvim-bufferline.lua'
 
+Plug 'hoob3rt/lualine.nvim'
+
 "Plug 'bling/vim-airline'
 
 

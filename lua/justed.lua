@@ -153,17 +153,19 @@ require('bufferline').setup {
     show_buffer_close_icons = false,
     show_close_icon = false,
     separator_style = "thick",
-    enforce_regular_tabs = true,
-    show_tab_indicators = false
+    --enforce_regular_tabs = true,
+    show_tab_indicators = true
   },
   highlights = {
     buffer_selected = {
       guifg = normal_fg,
-      --guibg = '<color-value-here>',
       gui = "bold"
     },
 
   }
 }
+
+require('justed_statusline')
+
 
 return justed
