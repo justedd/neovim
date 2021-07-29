@@ -199,7 +199,7 @@ nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
 
 nnoremap <leader>fs <cmd>lua require("justed").mappings.telescope_snippets() <CR>
 
-nnoremap <F4> :lua package.loaded.justed = nil<CR>:source ~/.config/nvim/init.vim<CR>
+nnoremap <F4> :lua package.loaded.justed = nil<CR>:source ~/.config/nvim/init.vim<CR>:LocalVimRC<CR>
 
 nnoremap <leader>w :write<CR>
 

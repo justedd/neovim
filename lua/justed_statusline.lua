@@ -75,7 +75,7 @@ end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = colors.blue}, -- Sets highlighting of component
+  color = {fg = colors.bg}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
 }
 
@@ -196,7 +196,7 @@ ins_right {
   'branch',
   icon = '',
   condition = conditions.check_git_workspace,
-  color = {fg = colors.violet, gui = 'bold'}
+  color = {fg = '#d4be98', gui = 'bold'}
 }
 
 ins_right {
@@ -211,7 +211,7 @@ ins_right {
 
 ins_right {
   function() return '▊' end,
-  color = {fg = colors.blue},
+  color = {fg = colors.bg},
   right_padding = 0
 }
 
