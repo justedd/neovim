@@ -199,7 +199,7 @@ nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
 
 nnoremap <leader>fs <cmd>lua require("justed").mappings.telescope_snippets() <CR>
 
-nnoremap <F4> :lua package.loaded.justed = nil<CR>:source ~/.config/nvim/init.vim<CR>:LocalVimRC<CR>
+nnoremap <F4> :lua package.loaded.justed = nil<CR>:lua package.loaded.justed_compe = nil<CR>:source ~/.config/nvim/init.vim<CR>:LocalVimRC<CR>
 
 nnoremap <leader>w :write<CR>
 
@@ -222,3 +222,16 @@ nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_sag
 " like a shell cmd mode navigation
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
+
+" Y works like C & D
+nnoremap Y y$
+
+" always center the match
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" More undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u

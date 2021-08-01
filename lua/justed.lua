@@ -114,6 +114,8 @@ npairs.add_rules {
       :use_key(']')
 }
 
+require('justed_compe')
+
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -145,6 +147,7 @@ require'compe'.setup {
     vsnip = false;
     ultisnips = true;
     luasnip = false;
+    month = true;
   };
 }
 
