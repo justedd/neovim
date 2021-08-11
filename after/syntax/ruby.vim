@@ -11,10 +11,9 @@ syn region sqlHeredoc start=/\v\<\<[-~]SQL/ end=/\vSQL/ keepend contains=@SQL
 let b:current_syntax = "ruby"
 
 unlet b:current_syntax
-syn include @XML syntax/xml.vim
-syn region sqlHeredoc start=/\v\<\<[-~]XML/ end=/\vXML/ keepend contains=@XML
-let b:current_syntax = "xml"
-
+syn include @xml syntax/xml.vim
+syn region sqlheredoc start=/\v\<\<[-~]XML/ end=/\vXML/ keepend contains=@XML
+let b:current_syntax = "ruby"
 
 
 " Extensions of vim-rails for better syntax highlight in rspec

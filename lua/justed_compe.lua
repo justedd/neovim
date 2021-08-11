@@ -59,9 +59,19 @@ function Source.complete(self, context)
   local filename = vim.api.nvim_exec("echo expand('%:t')", true)
   local line = vim.api.nvim_get_current_line()
 
-  if string.find(filename, "_spec.rb") and string.find(line, "it_behaves_like '") then
-    items = SharedExamples:get()
-    print('printed')
+  if string.find(filename, "_spec.rb") then
+    if string.find(line, "it_behaves_like '") then
+      items = SharedExamples:get()
+    else
+      items = {
+        { word = 'let_it_be' };
+        { word = 'it_behaves_like' };
+        { word = 'include_context' };
+        { word = 'create' };
+        { word = 'build' };
+        { word = 'build_stubbed' };
+      }
+    end
   end
 
   context.callback({

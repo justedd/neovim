@@ -4,6 +4,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'fhill2/telescope-ultisnips.nvim'
 " }}}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -130,11 +133,9 @@ Plug 'Pocco81/TrueZen.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons' " lua
 
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'kevinhwang91/rnvimr'
 
-Plug 'fhill2/telescope-ultisnips.nvim'
 
 
 call plug#end()

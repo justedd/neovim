@@ -63,3 +63,15 @@ endsnippet
 snippet fsc "frozen string literal comment" b
 # frozen_string_literal: true
 endsnippet
+
+snippet let "let definition" w
+let(:${1:name}) { ${2:#code} }
+endsnippet
+
+snippet before "before definition" w
+before { ${2:#code} }
+endsnippet
+
+snippet subject "subject definition" w
+subject { ${2:#code} }
+endsnippet
