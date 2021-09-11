@@ -20,7 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
-Plug 'maxbrunsfeld/vim-yankstack'
+"Plug 'maxbrunsfeld/vim-yankstack'
 "Plug 'bronson/vim-trailing-whitespace'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
@@ -100,7 +100,6 @@ Plug 'lyokha/vim-xkbswitch'
 " Git Plugins ------------------------------------------------------{{{
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
-"Plug 'airblade/vim-gitgutter'
 
 " allows to used :Gbrowse for GitHub
 Plug 'tpope/vim-rhubarb'
@@ -123,7 +122,8 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 
-Plug 'hrsh7th/nvim-compe'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 Plug 'windwp/nvim-autopairs'
 

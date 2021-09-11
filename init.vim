@@ -70,10 +70,6 @@ highlight link ALEErrorSign todo
 set signcolumn=yes
 "set updatetime=100
 " }}}
-" maxbrunsfeld/vim-yankstack {{{
-let g:yankstack_map_keys = 0
-call yankstack#setup() " vim-suround conflict with visual surround
-" }}}
 " bling/vim-airline' {{{
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -111,7 +107,7 @@ let g:vim_markdown_folding_disabled = 1
 " justinmk/vim-dirvish {{{
 let g:dirvish_mode = ':sort ,^.*[\/],'
 " }}}
-" maxbrunsfeld/vim-yankstack {{{
+" machakann/vim-highlightedyank {{{
 let g:highlightedyank_highlight_duration = 150
 "}}}
 " lyokha/vim-xkbswitch {{{
@@ -174,8 +170,8 @@ nnoremap <A-8> gt
 
 lua require('justed')
 
-nnoremap <A-m> :cnext <cr>
-nnoremap <A-,> :cprev <cr>
+nnoremap <A-m> :cnext <cr>zz
+nnoremap <A-,> :cprev <cr>zz
 
 nnoremap <C-H> :call mappings#cycle_highlight() <CR>
 
@@ -185,13 +181,13 @@ nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gb :Git blame<cr>
 
-xnoremap <Leader>y "+y
+xnoremap <Leader>yy "+y
+nmap <leader>yn :let @"=expand("%:t")<CR>
+nmap <leader>yp :let @"=expand("%")<CR>
+
 "nnoremap <Leader>e :set nohlsearch<cr><Plug>(Scalpel)
 " TODO :fix?
 nnoremap <Leader>e <Plug>(Scalpel)
-
-nnoremap <leader>k <Plug>yankstack_substitute_older_paste
-nnoremap <leader>j <Plug>yankstack_substitute_newer_paste
 
 nnoremap <leader>p <cmd>Telescope find_files<cr>
 nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
