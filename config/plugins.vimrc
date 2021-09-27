@@ -122,10 +122,13 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+"Plug 'windwp/nvim-autopairs'
 
-Plug 'windwp/nvim-autopairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'tpope/vim-endwise'
+
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'ray-x/lsp_signature.nvim'
 
@@ -136,6 +139,6 @@ Plug 'kyazdani42/nvim-web-devicons' " lua
 
 Plug 'kevinhwang91/rnvimr'
 
-
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
