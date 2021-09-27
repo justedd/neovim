@@ -190,7 +190,6 @@ nmap <leader>yp :let @"=expand("%")<CR>
 nnoremap <Leader>e <Plug>(Scalpel)
 
 nnoremap <leader>p <cmd>Telescope find_files<cr>
-nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
 "nnoremap <leader>f :FindFile <C-r><C-w><CR> :copen<CR><CR>
 
 nnoremap <leader>fs <cmd>lua require("justed").mappings.telescope_snippets() <CR>
@@ -232,6 +231,12 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Git
+nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
+nnoremap <Leader>gb :GBrowse<cr>
+nnoremap <Leader>ga :Git blame<cr>
+nnoremap <Leader>gr :Gread<cr>
+nnoremap <Leader>gw :Gwrite<cr>
 
 let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 for r in regs
