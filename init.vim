@@ -237,6 +237,7 @@ nnoremap <Leader>gb :GBrowse<cr>
 nnoremap <Leader>ga :Git blame<cr>
 nnoremap <Leader>gr :Gread<cr>
 nnoremap <Leader>gw :Gwrite<cr>
+nnoremap <Leader>gp :Git push<cr>
 
 let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 for r in regs
