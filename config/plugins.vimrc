@@ -141,4 +141,6 @@ Plug 'kevinhwang91/rnvimr'
 
 Plug 'ThePrimeagen/vim-be-good'
 
+Plug 'takac/vim-hardtime'
+
 call plug#end()

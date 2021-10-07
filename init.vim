@@ -238,6 +238,10 @@ nnoremap <Leader>ga :Git blame<cr>
 nnoremap <Leader>gr :Gread<cr>
 nnoremap <Leader>gw :Gwrite<cr>
 nnoremap <Leader>gp :Git push<cr>
+nnoremap <Leader>gL :Gclog -n 50<cr>
+nnoremap <Leader>gl :Gclog -50 -- %<cr>
+nnoremap <Leader>ge :Gedit %<cr>
+nnoremap <Leader>gE :Gedit origin/master:%<cr>
 
 let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 for r in regs
@@ -257,3 +261,6 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+
+let g:hardtime_default_on = 0
