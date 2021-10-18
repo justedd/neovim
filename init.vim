@@ -132,9 +132,6 @@ let g:arduino_use_slime = 1
 " wincent/scalpel {{{
 let g:ScalpelMap=0
 " }}}
-" lukas-reineke/indent-blankline.nvim {{{
-let g:indent_blankline_char = '▏'
-" }}}
 
 set termguicolors
 highlight Comment cterm=italic

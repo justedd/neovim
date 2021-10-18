@@ -84,6 +84,11 @@ require('bufferline').setup {
   }
 }
 
+require("indent_blankline").setup {
+    char = '▏',
+    buftype_exclude = {"terminal"}
+}
+
 require('justed_statusline')
 
 return justed
