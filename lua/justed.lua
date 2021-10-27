@@ -31,6 +31,8 @@ require'lspconfig'.rust_analyzer.setup{
 require('telescope').setup {
   defaults = {
     prompt_prefix = "(╯°□°）╯ >>> ",
+    path_display = { "truncate" },
+    dynamic_preview_title = true
   },
   extensions = {
     fzf = {

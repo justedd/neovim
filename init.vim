@@ -241,6 +241,16 @@ nnoremap <Leader>ge :Gedit %<cr>
 nnoremap <Leader>gE :Gedit origin/master:%<cr>
 nnoremap <Leader>gj :VcsJump diff HEAD<cr>
 
+# Always refresh indentlines after folding
+nmap <silent>zo zo:IndentBlanklineRefresh<cr>
+nmap <silent>zO zO:IndentBlanklineRefresh<cr>
+nmap <silent>zc zc:IndentBlanklineRefresh<cr>
+nmap <silent>zC zC:IndentBlanklineRefresh<cr>
+nmap <silent>zm zm:IndentBlanklineRefresh<cr>
+nmap <silent>zM zM:IndentBlanklineRefresh<cr>
+nmap <silent>zr zr:IndentBlanklineRefresh<cr>
+nmap <silent>zR zR:IndentBlanklineRefresh<cr>
+
 let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 for r in regs
   call setreg(r, [])
