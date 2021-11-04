@@ -126,17 +126,11 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 
-"Plug 'windwp/nvim-autopairs'
-
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-"Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'tpope/vim-endwise'

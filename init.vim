@@ -134,6 +134,9 @@ let g:arduino_use_slime = 1
 " wincent/scalpel {{{
 let g:ScalpelMap=0
 " }}}
+" jiangmiao/auto-pairs {{{
+let g:AutoPairsShortcutToggle = ""
+"}}}
 
 set termguicolors
 highlight Comment cterm=italic
@@ -238,6 +241,7 @@ nnoremap <silent><Leader>mm :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <silent><A-u> :lua require("harpoon.ui").nav_file(1)<cr>
 nnoremap <silent><A-i> :lua require("harpoon.ui").nav_file(2)<cr>
 nnoremap <silent><A-o> :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <silent><A-p> :lua require("harpoon.ui").nav_file(4)<cr>
 
 " Always refresh indentlines after folding
 nmap <silent>zo zo:IndentBlanklineRefresh<cr>
