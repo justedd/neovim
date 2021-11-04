@@ -241,7 +241,7 @@ nnoremap <Leader>ge :Gedit %<cr>
 nnoremap <Leader>gE :Gedit origin/master:%<cr>
 nnoremap <Leader>gj :VcsJump diff HEAD<cr>
 
-# Always refresh indentlines after folding
+" Always refresh indentlines after folding
 nmap <silent>zo zo:IndentBlanklineRefresh<cr>
 nmap <silent>zO zO:IndentBlanklineRefresh<cr>
 nmap <silent>zc zc:IndentBlanklineRefresh<cr>
@@ -270,5 +270,7 @@ augroup BWCCreateDir
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
+" airblade/vim-gitgutter
+set updatetime=100
 
 let g:hardtime_default_on = 0

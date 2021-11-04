@@ -99,7 +99,9 @@ Plug 'lyokha/vim-xkbswitch'
 
 " Git Plugins ------------------------------------------------------{{{
 Plug 'tpope/vim-fugitive'
-Plug 'lewis6991/gitsigns.nvim'
+
+"Plug 'lewis6991/gitsigns.nvim'
+Plug 'airblade/vim-gitgutter'
 
 " allows to used :Gbrowse for GitHub
 Plug 'tpope/vim-rhubarb'
@@ -124,7 +126,16 @@ Plug 'glepnir/lspsaga.nvim'
 
 "Plug 'windwp/nvim-autopairs'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 Plug 'tpope/vim-endwise'
 
@@ -142,5 +153,7 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'takac/vim-hardtime'
+
+Plug 'folke/trouble.nvim'
 
 call plug#end()
