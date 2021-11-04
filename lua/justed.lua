@@ -41,22 +41,22 @@ require('lspsaga').init_lsp_saga({
   },
 })
 
-require('bufferline').setup {
-  options = {
-    show_buffer_close_icons = false,
-    show_close_icon = false,
-    separator_style = "thick",
-    --enforce_regular_tabs = true,
-    show_tab_indicators = true
-  },
-  highlights = {
-    buffer_selected = {
-      guifg = normal_fg,
-      gui = "bold"
-    },
+--require('bufferline').setup {
+  --options = {
+    --show_buffer_close_icons = false,
+    --show_close_icon = false,
+    --separator_style = "thick",
+    ----enforce_regular_tabs = true,
+    --show_tab_indicators = true
+  --},
+  --highlights = {
+    --buffer_selected = {
+      --guifg = normal_fg,
+      --gui = "bold"
+    --},
 
-  }
-}
+  --}
+--}
 
 require("indent_blankline").setup {
     char = '▏',

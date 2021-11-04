@@ -64,8 +64,12 @@ local config = {
 }
 
 -- Inserts a component in lualine_c at left section
-local function ins_left(component)
+local function ins_left(component, both)
   table.insert(config.sections.lualine_c, component)
+
+  if both then
+    table.insert(config.inactive_sections.lualine_c, component)
+  end
 end
 
 -- Inserts a component in lualine_x ot right section
@@ -73,13 +77,13 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
   function() return '▊' end,
   color = {fg = colors.bg}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
-}
+}, true)
 
-ins_left {
+ins_left({
   -- mode component
   function()
     -- auto change color according to neovims mode
@@ -112,38 +116,38 @@ ins_left {
   end,
   color = "LualineMode",
   left_padding = 0
-}
+}, true)
 
-ins_left {
-  -- filesize component
-  function()
-    local function format_file_size(file)
-      local size = vim.fn.getfsize(file)
-      if size <= 0 then return '' end
-      local sufixes = {'b', 'k', 'm', 'g'}
-      local i = 1
-      while size > 1024 do
-        size = size / 1024
-        i = i + 1
-      end
-      return string.format('%.1f%s', size, sufixes[i])
-    end
-    local file = vim.fn.expand('%:p')
-    if string.len(file) == 0 then return '' end
-    return format_file_size(file)
-  end,
-  condition = conditions.buffer_not_empty
-}
+--ins_left({
+  ---- filesize component
+  --function()
+    --local function format_file_size(file)
+      --local size = vim.fn.getfsize(file)
+      --if size <= 0 then return '' end
+      --local sufixes = {'b', 'k', 'm', 'g'}
+      --local i = 1
+      --while size > 1024 do
+        --size = size / 1024
+        --i = i + 1
+      --end
+      --return string.format('%.1f%s', size, sufixes[i])
+    --end
+    --local file = vim.fn.expand('%:p')
+    --if string.len(file) == 0 then return '' end
+    --return format_file_size(file)
+  --end,
+  --condition = conditions.buffer_not_empty
+--}, true)
 
-ins_left {
+ins_left({
   'filename',
   condition = conditions.buffer_not_empty,
   color = {fg = colors.magenta, gui = 'bold'}
-}
+}, true)
 
-ins_left {'location'}
+--ins_left {'location'}
 
-ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
+--ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
 
 ins_left {
   'diagnostics',
@@ -158,35 +162,35 @@ ins_left {
 -- for lualine it's any number greater then 2
 ins_left {function() return '%=' end}
 
-ins_left {
-  -- Lsp server name .
-  function()
-    local msg = 'No Active Lsp'
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then return msg end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  icon = ' LSP:',
-  color = {fg = '#d4be98', gui = 'bold'}
-}
+--ins_left {
+  ---- Lsp server name .
+  --function()
+    --local msg = 'No Active Lsp'
+    --local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    --local clients = vim.lsp.get_active_clients()
+    --if next(clients) == nil then return msg end
+    --for _, client in ipairs(clients) do
+      --local filetypes = client.config.filetypes
+      --if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        --return client.name
+      --end
+    --end
+    --return msg
+  --end,
+  --icon = ' LSP:',
+  --color = {fg = '#d4be98', gui = 'bold'}
+--}
 
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  upper = true, -- I'm not sure why it's upper case either ;)
-  condition = conditions.hide_in_width,
-  color = {fg = colors.green, gui = 'bold'}
-}
+---- Add components to right sections
+--ins_right {
+  --'o:encoding', -- option component same as &encoding in viml
+  --upper = true, -- I'm not sure why it's upper case either ;)
+  --condition = conditions.hide_in_width,
+  --color = {fg = colors.green, gui = 'bold'}
+--}
 
 ins_right {
-  'fileformat',
+  'filetype',
   upper = true,
   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
   color = {fg = colors.green, gui = 'bold'}

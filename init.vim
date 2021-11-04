@@ -23,6 +23,8 @@ set foldmethod=indent
 set foldlevelstart=99
 set foldlevel=99
 
+set showtabline=0
+
 set fdo-=search
 set fillchars=fold:\ 
 
@@ -148,21 +150,11 @@ nmap Q q
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" tmux guard mappings {{{
-nnoremap <A-y> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-up"<cr>
-nnoremap <A-n> :silent exec "!tmux copy-mode -t guard.1 && tmux send-keys -X -N30 -t guard.1 scroll-down"<cr>
-nnoremap <A-]> :silent exec "!tmux copy-mode -q -t guard.1"<cr>
-nnoremap <A-=> :silent exec "!tmux send-keys -t guard.1 C-c"<cr>
-"}}}
-
 " windows/tabs navigation {{{
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
-
-nnoremap <A-7> gT
-nnoremap <A-8> gt
 " }}}
 
 lua require('justed')
@@ -240,6 +232,12 @@ nnoremap <Leader>gl :Gclog -50 -- %<cr>
 nnoremap <Leader>ge :Gedit %<cr>
 nnoremap <Leader>gE :Gedit origin/master:%<cr>
 nnoremap <Leader>gj :VcsJump diff HEAD<cr>
+
+nnoremap <silent><Leader>ma :lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent><Leader>mm :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent><A-u> :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent><A-i> :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent><A-o> :lua require("harpoon.ui").nav_file(3)<cr>
 
 " Always refresh indentlines after folding
 nmap <silent>zo zo:IndentBlanklineRefresh<cr>

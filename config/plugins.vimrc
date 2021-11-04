@@ -5,6 +5,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'ThePrimeagen/harpoon'
+
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'fhill2/telescope-ultisnips.nvim'
 " }}}
@@ -114,7 +116,7 @@ Plug 'embear/vim-localvimrc'
 " Display marks(a-z, A-Z) near numbers
 Plug 'kshenoy/vim-signature'
 
-Plug 'akinsho/nvim-bufferline.lua'
+"Plug 'akinsho/nvim-bufferline.lua'
 
 Plug 'hoob3rt/lualine.nvim'
 
