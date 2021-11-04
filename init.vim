@@ -11,7 +11,7 @@ set diffopt+=vertical
 let mapleader=" "
 let maplocalleader="  "
 
-let &colorcolumn=join(range(81,999),",") " highlight wide lines
+"let &colorcolumn=join(range(81,999),",") " highlight wide lines
 
 "set backupdir=~/.vim/backup/
 "set directory=~/.vim/backup/
