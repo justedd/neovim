@@ -11,6 +11,7 @@ set diffopt+=vertical
 let mapleader=" "
 let maplocalleader="  "
 
+set colorcolumn=99999
 "let &colorcolumn=join(range(81,999),",") " highlight wide lines
 
 "set backupdir=~/.vim/backup/
@@ -238,10 +239,11 @@ nnoremap <Leader>gj :VcsJump diff HEAD<cr>
 
 nnoremap <silent><Leader>ma :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><Leader>mm :lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <silent><A-u> :lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <silent><A-i> :lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <silent><A-o> :lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <silent><A-p> :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <silent><A-y> :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent><A-u> :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent><A-i> :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <silent><A-o> :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <silent><A-p> :lua require("harpoon.ui").nav_file(5)<cr>
 
 " Always refresh indentlines after folding
 nmap <silent>zo zo:IndentBlanklineRefresh<cr>
