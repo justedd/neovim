@@ -277,4 +277,11 @@ augroup END
 " airblade/vim-gitgutter
 set updatetime=100
 
+" proper cursor highlighting
+highlight Cursor guifg=white guibg=red
+highlight iCursor guifg=white guibg=red
+highlight nCursor guifg=white guibg=red
+set guicursor=n-c-v:block-nCursor-blinkon999-blinkoff1-blinkwait1
+set guicursor+=i:ver100-iCursor
+
 let g:hardtime_default_on = 0
