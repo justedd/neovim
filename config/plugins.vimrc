@@ -22,8 +22,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
-"Plug 'maxbrunsfeld/vim-yankstack'
-"Plug 'bronson/vim-trailing-whitespace'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
 
@@ -47,7 +45,6 @@ Plug 'wincent/scalpel'
 
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'
-"Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
 
 
@@ -69,12 +66,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'aklt/plantuml-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
 Plug 'jparise/vim-graphql'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tpope/vim-rails'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
@@ -123,7 +117,6 @@ Plug 'hoob3rt/lualine.nvim'
 "Plug 'bling/vim-airline'
 
 
-Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'neovim/nvim-lspconfig'
@@ -134,22 +127,13 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'tpope/vim-endwise'
-
 Plug 'jiangmiao/auto-pairs'
-
-Plug 'ray-x/lsp_signature.nvim'
-
-Plug 'Pocco81/TrueZen.nvim'
-
 Plug 'kyazdani42/nvim-web-devicons' " lua
-
 
 Plug 'kevinhwang91/rnvimr'
 
 Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'takac/vim-hardtime'
-
-Plug 'folke/trouble.nvim'
 
 call plug#end()

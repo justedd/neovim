@@ -1,5 +1,3 @@
---require'lsp_signature'.on_attach()
-
 require('telescope').setup {
   defaults = {
     prompt_prefix = "(╯°□°）╯ >>> ",
@@ -41,23 +39,6 @@ require('lspsaga').init_lsp_saga({
   },
 })
 
---require('bufferline').setup {
-  --options = {
-    --show_buffer_close_icons = false,
-    --show_close_icon = false,
-    --separator_style = "thick",
-    ----enforce_regular_tabs = true,
-    --show_tab_indicators = true
-  --},
-  --highlights = {
-    --buffer_selected = {
-      --guifg = normal_fg,
-      --gui = "bold"
-    --},
-
-  --}
---}
-
 require("indent_blankline").setup {
     char = '▏',
     buftype_exclude = {"terminal"}
@@ -94,9 +75,6 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end,
   },
   mapping = {
@@ -110,15 +88,11 @@ cmp.setup({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    --{ name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    --{ name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'nvim_diagnostic' },
   }, {
     {
       name = 'buffer',
-      opts = {
+      option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
         end
@@ -127,29 +101,8 @@ cmp.setup({
   })
 })
 
--- Use buffer source for `/`.
---cmp.setup.cmdline('/', {
-  --sources = {
-    --{ name = 'buffer' }
-  --}
---})
-
--- Use cmdline & path source for ':'.
---cmp.setup.cmdline(':', {
-  --sources = cmp.config.sources({
-    --{ name = 'path' }
-  --}, {
-    --{ name = 'cmdline' }
-  --})
---})
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- TODO: understand how to not show the diagnostics
 require'lspconfig'.solargraph.setup{
-  on_attach = function(client)
-    require'lsp_signature'.on_attach()
-  end, 
   handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -206,11 +159,5 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
-
-
-require("trouble").setup({
-  auto_open = false, -- automatically open the list when you have diagnostics
-  auto_close = false, -- automatically close the list when you have no diagnostics
-})
 
 return justed

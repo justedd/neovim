@@ -226,7 +226,7 @@ inoremap ? ?<c-g>u
 
 " Git
 nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
-nnoremap <Leader>gb :GBrowse<cr>
+xnoremap <Leader>gb :GBrowse<cr>
 nnoremap <Leader>ga :Git blame<cr>
 nnoremap <Leader>gr :Gread<cr>
 nnoremap <Leader>gw :Gwrite<cr>
