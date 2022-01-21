@@ -88,10 +88,14 @@ cmp.setup({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_diagnostic' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'nvim_lua' },
+    { name = 'vim-dadbod-completion' },
   }, {
     {
       name = 'buffer',
+      max_item_count = 5,
       option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()

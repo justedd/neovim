@@ -52,6 +52,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'kristijanhusak/vim-dadbod-completion'
 " }}}
 
 
