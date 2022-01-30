@@ -116,6 +116,11 @@ require'lspconfig'.solargraph.setup{
       }
     )
   },
+  on_attach = function()
+    -- remap documentation only for current buffer
+    -- second press moves you to the documentation window
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+  end
 }
 
 require'lspconfig'.rust_analyzer.setup{

@@ -127,6 +127,7 @@ let g:gruvbox_material_disable_italic_comment = 0
 " }}}
 " wincent/ferret {{{
 let g:FerretAutojump=2
+let g:FerretExecutable='ag,rg'
 "}}}
 " jpalardy/vim-slime {{{
 let g:slime_target = "tmux"
@@ -203,9 +204,9 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
 
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+"nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+"nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+"nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 
 " like a shell cmd mode navigation
 cnoremap <M-b> <S-Left>
