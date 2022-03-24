@@ -14,7 +14,7 @@ let maplocalleader="  "
 set colorcolumn=99999
 "let &colorcolumn=join(range(81,999),",") " highlight wide lines
 
-"set backupdir=~/.vim/backup/
+set backupdir=~/.vim/backup/
 "set directory=~/.vim/backup/
 " other way ":Move" causes errors
 "set dir=/tmp//
