@@ -225,6 +225,8 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+nnoremap <Leader>r :RnvimrToggle<cr>
+
 " Git
 nnoremap <Leader>gc :lua require'telescope.builtin'.git_branches{}<cr>
 xnoremap <Leader>gb :GBrowse<cr>

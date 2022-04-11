@@ -28,8 +28,8 @@ Plug 'tpope/vim-unimpaired'
 " navigate in indentation liek [-
 Plug 'jeetsukumaran/vim-indentwise'
 
-" indentation text objects, <vii> and so on
-Plug 'michaeljsmith/vim-indent-object'
+" indentation text objects, <vii> and so on (this thing breaks macros)
+"Plug 'michaeljsmith/vim-indent-object'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/vim-emoji'
