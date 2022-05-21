@@ -48,6 +48,13 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldlevel=0
 augroup END
 
+augroup filetype_markdown
+  autocmd!
+  autocmd FileType markdown setlocal foldmethod=marker
+  autocmd FileType markdown setlocal foldlevelstart=0
+  autocmd FileType markdown setlocal foldlevel=0
+augroup END
+
 " bronson/vim-trailing-whitespace {{{
 let g:extra_whitespace_ignored_filetypes = ['sql', 'dbout']
 " }}}
@@ -203,10 +210,6 @@ nnoremap <silent> gr :Telescope lsp_references<CR>
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
 inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
-
-"nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-"nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-"nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 
 " like a shell cmd mode navigation
 cnoremap <M-b> <S-Left>

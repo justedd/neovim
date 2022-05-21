@@ -118,8 +118,6 @@ Plug 'hoob3rt/lualine.nvim'
 "Plug 'bling/vim-airline'
 
 
-Plug 'glepnir/lspsaga.nvim'
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'

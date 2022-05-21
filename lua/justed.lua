@@ -32,13 +32,6 @@ justed.mappings.telescope_snippets = function()
   require('telescope').extensions.ultisnips.ultisnips(options)
 end
 
-require('lspsaga').init_lsp_saga({
-  use_saga_diagnostic_sign = false,
-  code_action_prompt = {
-    enable = false,
-  },
-})
-
 require("indent_blankline").setup {
     char = '▏',
     buftype_exclude = {"terminal"}
