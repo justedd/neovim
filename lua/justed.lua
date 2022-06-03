@@ -1,4 +1,11 @@
-require('telescope').setup {
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+local telescope = require('telescope')
+telescope.load_extension('fzf')
+telescope.load_extension('ultisnips')
+telescope.load_extension('media_files')
+
+telescope.setup {
   defaults = {
     prompt_prefix = "(╯°□°）╯ >>> ",
     path_display = { "truncate" },
@@ -14,10 +21,6 @@ require('telescope').setup {
     }
   }
 }
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('ultisnips')
 
 local justed = {
   mappings = {}
@@ -81,6 +84,7 @@ cmp.setup({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'nvim_lua' },

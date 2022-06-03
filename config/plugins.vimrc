@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
@@ -42,6 +43,13 @@ Plug 'wincent/terminus'
 " }}}
 
 Plug 'wincent/scalpel'
+
+Plug 'jceb/vim-editqf'
+
+
+Plug 'github/copilot.vim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'zbirenbaum/copilot-cmp'
 
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'

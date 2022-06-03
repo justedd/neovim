@@ -169,6 +169,7 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
 " }}}
 
+"lua require('plguins')
 lua require('justed')
 
 nnoremap <A-m> :cnext <cr>zz
@@ -176,8 +177,8 @@ nnoremap <A-,> :cprev <cr>zz
 
 nnoremap H :call mappings#cycle_highlight() <CR>
 
-nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
-nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
+"nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gb :Git blame<cr>
@@ -210,6 +211,16 @@ nnoremap <silent> gr :Telescope lsp_references<CR>
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
 inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
+
+
+"imap <Plug>(copilot-next)     <Cmd>call copilot#Next()<CR>
+"imap <Plug>(copilot-previous) <Cmd>call copilot#Previous()<CR>
+"imap <C-j> <Plug>(copilot-next)
+"imap <C-j> <Cmd>call copilot#Next()<CR>
+    "imap <M-[> <Plug>(copilot-previous)
+"inoremap <silent><script><expr> <C-j> <Plug>(copilot-next)
+"imap <silent><script> <C-J> copilot#Next("")
+"inoremap <C-k> <Plug>(copilot-prev)
 
 " like a shell cmd mode navigation
 cnoremap <M-b> <S-Left>
