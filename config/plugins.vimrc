@@ -48,8 +48,6 @@ Plug 'jceb/vim-editqf'
 
 
 Plug 'github/copilot.vim'
-Plug 'zbirenbaum/copilot.lua'
-Plug 'zbirenbaum/copilot-cmp'
 
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'
@@ -127,11 +125,6 @@ Plug 'hoob3rt/lualine.nvim'
 
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
 
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'

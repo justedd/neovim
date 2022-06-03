@@ -169,7 +169,7 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
 " }}}
 
-"lua require('plguins')
+lua require('plugins')
 lua require('justed')
 
 nnoremap <A-m> :cnext <cr>zz
@@ -300,5 +300,7 @@ highlight iCursor guifg=white guibg=red
 highlight nCursor guifg=white guibg=red
 set guicursor=n-c-v:block-nCursor-blinkon999-blinkoff1-blinkwait1
 set guicursor+=i:ver100-iCursor
+
+let g:copilot_enabled = 0
 
 let g:hardtime_default_on = 0

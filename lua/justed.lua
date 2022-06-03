@@ -66,6 +66,8 @@ table.insert(runtime_path, "lua/?/init.lua")
   -- Setup nvim-cmp.
 local cmp = require'cmp'
 
+require("copilot").setup()
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -76,6 +78,20 @@ cmp.setup({
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-n>'] = function ()
+      if not cmp.visible() then
+        cmp.complete()
+      else
+        cmp.select_next_item()
+      end
+    end,
+    ['<C-p>'] = function ()
+      if not cmp.visible() then
+        cmp.complete()
+      else
+        cmp.select_prev_item()
+      end
+    end,
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
@@ -84,8 +100,15 @@ cmp.setup({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
-    { name = 'copilot' },
-    { name = 'nvim_lsp' },
+    {
+      name = 'copilot',
+      keyword_length = 0,
+      group_index = 1,
+    },
+    {
+      name = 'nvim_lsp',
+      group_index = 1,
+    },
     { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'vim-dadbod-completion' },
