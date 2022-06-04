@@ -2,7 +2,6 @@
 -- load_extension, somewhere after setup function:
 local telescope = require('telescope')
 telescope.load_extension('fzf')
-telescope.load_extension('ultisnips')
 telescope.load_extension('media_files')
 
 telescope.setup {
@@ -28,12 +27,6 @@ local justed = {
 
 --require('gitsigns').setup()
 
-
-justed.mappings.telescope_snippets = function()
-  local options = require('telescope.themes').get_dropdown()
-
-  require('telescope').extensions.ultisnips.ultisnips(options)
-end
 
 require("indent_blankline").setup {
     char = '▏',
@@ -69,12 +62,6 @@ local cmp = require'cmp'
 require("copilot").setup()
 
 cmp.setup({
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-    end,
-  },
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),

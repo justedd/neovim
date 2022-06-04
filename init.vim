@@ -136,10 +136,6 @@ let g:gruvbox_material_disable_italic_comment = 0
 let g:FerretAutojump=2
 let g:FerretExecutable='ag,rg'
 "}}}
-" jpalardy/vim-slime {{{
-let g:slime_target = "tmux"
-let g:arduino_use_slime = 1
-"}}}
 " wincent/scalpel {{{
 let g:ScalpelMap=0
 " }}}

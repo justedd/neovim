@@ -30,16 +30,9 @@ Plug 'scrooloose/nerdcommenter'
 
 
 
-" Competition & syntax & snippetsa ------------------------------- {{{
+" Competition & syntax ------------------------------- {{{
 Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
 "}}}
-
-" REPL
-Plug 'jpalardy/vim-slime'
-
-" File browsing ------------------------------------------------------ {{{
-" }}}
 
 Plug 'wincent/ferret'
 
@@ -56,9 +49,5 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 
-
-Plug 'ThePrimeagen/vim-be-good'
-
-Plug 'takac/vim-hardtime'
 
 call plug#end()
