@@ -45,12 +45,6 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'scrooloose/nerdcommenter'
 
 
-" DB Plugins {{{
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'
-Plug 'kristijanhusak/vim-dadbod-ui'
-" }}}
-
 
 " Competition & syntax & snippetsa ------------------------------- {{{
 Plug 'w0rp/ale'

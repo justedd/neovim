@@ -55,4 +55,9 @@ return require('packer').startup(function()
   use 'tpope/vim-rhubarb' -- required for :Gbrowse for GitHub
   use 'wincent/vcs-jump'
   use 'kristijanhusak/vim-dirvish-git'
+
+
+  -- Database
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
 end)
