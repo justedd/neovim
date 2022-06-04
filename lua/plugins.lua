@@ -4,7 +4,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-  -- Packer can manage itself
+  -- Mange itself
   use 'wbthomason/packer.nvim'
 
   -- autocomplete
@@ -19,11 +19,31 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'kristijanhusak/vim-dadbod-completion'
 
-  -- telescope
+  -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'fhill2/telescope-ultisnips.nvim'
+
+
+  -- Languages and Frameworks
+  use 'noprompt/vim-yardoc'
+  use 'rust-lang/rust.vim'
+  use 'stevearc/vim-arduino'
+  use 'vim-ruby/vim-ruby'
+  use 'pangloss/vim-javascript'
+  use 'JulesWang/css.vim'
+  use 'cakebaker/scss-syntax.vim'
+  use 'digitaltoad/vim-jade'
+  use 'slim-template/vim-slim'
+  use 'kchmck/vim-coffee-script'
+  use 'plasticboy/vim-markdown'
+  use 'tpope/vim-bundler'
+  use 'jparise/vim-graphql'
+  use 'tpope/vim-rails'
+  use 'mxw/vim-jsx'
+  use 'posva/vim-vue'
+  use 'ekalinin/Dockerfile.vim'
 end)

@@ -52,26 +52,6 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 " }}}
 
 
-" language && framework Plugins ------------------------------------{{{
-Plug 'noprompt/vim-yardoc'
-Plug 'rust-lang/rust.vim'
-Plug 'stevearc/vim-arduino'
-Plug 'vim-ruby/vim-ruby'
-Plug 'pangloss/vim-javascript'
-Plug 'JulesWang/css.vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'digitaltoad/vim-jade'
-Plug 'slim-template/vim-slim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-bundler'
-Plug 'jparise/vim-graphql'
-Plug 'tpope/vim-rails'
-Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
-Plug 'ekalinin/Dockerfile.vim'
-" }}}
-
 " Competition & syntax & snippetsa ------------------------------- {{{
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
