@@ -11,17 +11,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'sainnhe/gruvbox-material'
 
-" Random Vim features -----{{{
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-eunuch'
-Plug 'haya14busa/vim-asterisk'
-Plug 'tpope/vim-unimpaired'
 
-" navigate in indentation liek [-
-Plug 'jeetsukumaran/vim-indentwise'
 
 " indentation text objects, <vii> and so on (this thing breaks macros)
 "Plug 'michaeljsmith/vim-indent-object'

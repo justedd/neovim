@@ -60,4 +60,15 @@ return require('packer').startup(function()
   -- Database
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
+
+
+  -- Random Features
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-abolish'
+  use 'tpope/vim-speeddating'
+  use 'tpope/vim-eunuch'
+  use 'haya14busa/vim-asterisk'
+  use 'tpope/vim-unimpaired'
+  use 'jeetsukumaran/vim-indentwise'
 end)
