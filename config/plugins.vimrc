@@ -1,15 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Telescope and dependencies {{{
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-media-files.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'fhill2/telescope-ultisnips.nvim'
 " }}}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -46,9 +40,6 @@ Plug 'wincent/scalpel'
 
 Plug 'jceb/vim-editqf'
 
-
-Plug 'github/copilot.vim'
-
 " TODO replace
 Plug 'andrewradev/splitjoin.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -58,7 +49,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'kristijanhusak/vim-dadbod-completion'
 " }}}
 
 
@@ -123,8 +113,6 @@ Plug 'hoob3rt/lualine.nvim'
 
 "Plug 'bling/vim-airline'
 
-
-Plug 'neovim/nvim-lspconfig'
 
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
