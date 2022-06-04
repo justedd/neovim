@@ -7,6 +7,11 @@ return require('packer').startup(function()
   -- Mange itself
   use 'wbthomason/packer.nvim'
 
+
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+
   -- autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
@@ -20,12 +25,17 @@ return require('packer').startup(function()
   use 'kristijanhusak/vim-dadbod-completion'
 
 
+  -- Errors
+  use 'w0rp/ale'
+
+
   -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 
   -- Languages and Frameworks
   use 'noprompt/vim-yardoc'
@@ -69,6 +79,15 @@ return require('packer').startup(function()
   use 'haya14busa/vim-asterisk'
   use 'tpope/vim-unimpaired'
   use 'jeetsukumaran/vim-indentwise'
+  use 'andrewradev/splitjoin.vim'
+  use 'scrooloose/nerdcommenter'
+  use 'tpope/vim-endwise'
+  use 'jiangmiao/auto-pairs'
+  use 'kshenoy/vim-signature' -- Display marks(a-z, A-Z) near numbers
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'junegunn/vim-easy-align'
+  use 'machakann/vim-highlightedyank'
+  use 'markonm/traces.vim'
 
 
   -- File Browsing
@@ -77,4 +96,21 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'kevinhwang91/rnvimr'
   use 'ThePrimeagen/harpoon'
+
+
+  -- UI
+  use 'sainnhe/gruvbox-material'
+  use 'junegunn/vim-emoji'
+  use 'hoob3rt/lualine.nvim'
+
+
+  -- System Integration
+  use 'wincent/terminus' -- Terminal improvements
+  use 'lyokha/vim-xkbswitch'
+  use 'embear/vim-localvimrc'
+
+
+  -- Search & Replace
+  use 'wincent/scalpel'
+  use 'wincent/ferret'
 end)
