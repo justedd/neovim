@@ -12,13 +12,8 @@ let mapleader=" "
 let maplocalleader="  "
 
 set colorcolumn=99999
-"let &colorcolumn=join(range(81,999),",") " highlight wide lines
 
 set backupdir=~/.vim/backup/
-"set directory=~/.vim/backup/
-" other way ":Move" causes errors
-"set dir=/tmp//
-"set directory=$HOME/.vim/swapfiles//
 
 set foldmethod=indent
 set foldlevelstart=99
@@ -104,12 +99,6 @@ let g:localvimrc_ask = 0
 " rickhowe/diffchar.vim {{{
 let g:DiffColors = 100
 "}}}
-" airblade/vim-gitgutter {{{
-"let g:gitgutter_sign_added = emoji#for('arrow_forward')
-"let g:gitgutter_sign_modified = emoji#for('arrow_right_hook')
-"let g:gitgutter_sign_removed = emoji#for('arrow_backward')
-"let g:gitgutter_sign_modified_removed = emoji#for('leftwards_arrow_with_hook')
-"}}}
 "plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
 "}}}
@@ -172,8 +161,8 @@ nnoremap <A-,> :cprev <cr>zz
 
 nnoremap H :call mappings#cycle_highlight() <CR>
 
-"nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
-"nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
+nnoremap <silent> <c-k> <plug>(ale_previous_wrap)
+nnoremap <silent> <c-j> <plug>(ale_next_wrap)
 
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gb :Git blame<cr>
@@ -182,14 +171,7 @@ xnoremap <Leader>yy "+y
 nmap <leader>yn :let @"=expand("%:t")<CR>
 nmap <leader>yp :let @"=expand("%")<CR>
 
-"nnoremap <Leader>e :set nohlsearch<cr><Plug>(Scalpel)
-" TODO :fix?
-nnoremap <Leader>e <Plug>(Scalpel)
-
 nnoremap <leader>p <cmd>Telescope find_files<cr>
-"nnoremap <leader>f :FindFile <C-r><C-w><CR> :copen<CR><CR>
-
-nnoremap <leader>fs <cmd>lua require("justed").mappings.telescope_snippets() <CR>
 
 nnoremap <F4> :lua package.loaded.justed = nil<CR>:lua package.loaded.justed_compe = nil<CR>:source ~/.config/nvim/init.vim<CR>:LocalVimRC<CR>
 
@@ -206,16 +188,6 @@ nnoremap <silent> gr :Telescope lsp_references<CR>
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
 inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
-
-
-"imap <Plug>(copilot-next)     <Cmd>call copilot#Next()<CR>
-"imap <Plug>(copilot-previous) <Cmd>call copilot#Previous()<CR>
-"imap <C-j> <Plug>(copilot-next)
-"imap <C-j> <Cmd>call copilot#Next()<CR>
-    "imap <M-[> <Plug>(copilot-previous)
-"inoremap <silent><script><expr> <C-j> <Plug>(copilot-next)
-"imap <silent><script> <C-J> copilot#Next("")
-"inoremap <C-k> <Plug>(copilot-prev)
 
 " like a shell cmd mode navigation
 cnoremap <M-b> <S-Left>

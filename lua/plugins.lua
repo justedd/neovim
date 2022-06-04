@@ -111,6 +111,5 @@ return require('packer').startup(function()
 
 
   -- Search & Replace
-  use 'wincent/scalpel'
   use 'wincent/ferret'
 end)
