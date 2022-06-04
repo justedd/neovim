@@ -19,6 +19,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'kristijanhusak/vim-dadbod-completion'
 
+
   -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -46,4 +47,12 @@ return require('packer').startup(function()
   use 'mxw/vim-jsx'
   use 'posva/vim-vue'
   use 'ekalinin/Dockerfile.vim'
+
+
+  -- git plugins
+  use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
+  use 'tpope/vim-rhubarb' -- required for :Gbrowse for GitHub
+  use 'wincent/vcs-jump'
+  use 'kristijanhusak/vim-dirvish-git'
 end)

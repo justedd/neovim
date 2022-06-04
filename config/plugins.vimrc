@@ -62,7 +62,6 @@ Plug 'jpalardy/vim-slime'
 
 " File browsing ------------------------------------------------------ {{{
 Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'ryanoasis/vim-devicons'
 " }}}
 
@@ -71,14 +70,6 @@ Plug 'wincent/ferret'
 Plug 'lyokha/vim-xkbswitch'
 
 " Git Plugins ------------------------------------------------------{{{
-Plug 'tpope/vim-fugitive'
-
-"Plug 'lewis6991/gitsigns.nvim'
-Plug 'airblade/vim-gitgutter'
-
-" allows to used :Gbrowse for GitHub
-Plug 'tpope/vim-rhubarb'
-Plug 'wincent/vcs-jump'
 " }}}
 
 
