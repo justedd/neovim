@@ -71,4 +71,12 @@ return require('packer').startup(function()
   use 'haya14busa/vim-asterisk'
   use 'tpope/vim-unimpaired'
   use 'jeetsukumaran/vim-indentwise'
+
+
+  -- File Browsing
+  use 'justinmk/vim-dirvish'
+  use 'ryanoasis/vim-devicons'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kevinhwang91/rnvimr'
+  use 'ThePrimeagen/harpoon'
 end)
