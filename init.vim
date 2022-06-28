@@ -116,9 +116,9 @@ let g:XkbSwitchAssistSKeymap = 1    " for search lines
 let g:XkbSwitchDynamicKeymap = 1
 " }}}
 " sainnhe/gruvbox-material {{{
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_enable_italic = 0
-let g:gruvbox_material_disable_italic_comment = 0
+"let g:gruvbox_material_background = 'medium'
+"let g:gruvbox_material_enable_italic = 0
+"let g:gruvbox_material_disable_italic_comment = 0
 " }}}
 " wincent/ferret {{{
 let g:FerretAutojump=2

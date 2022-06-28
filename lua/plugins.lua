@@ -18,9 +18,9 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
-  use 'github/copilot.vim'
-  use 'zbirenbaum/copilot.lua'
-  use 'zbirenbaum/copilot-cmp'
+  -- use 'github/copilot.vim'
+  -- use 'zbirenbaum/copilot.lua'
+  -- use 'zbirenbaum/copilot-cmp'
   use 'neovim/nvim-lspconfig'
   use 'kristijanhusak/vim-dadbod-completion'
 
