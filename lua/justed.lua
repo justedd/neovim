@@ -178,7 +178,7 @@ require'lspconfig'.sumneko_lua.setup {
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "ruby", "yaml", "javascript" },
+  ensure_installed = { "ruby", "yaml", "javascript", "lua" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

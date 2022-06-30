@@ -100,6 +100,11 @@ return require('packer').startup(function()
 
   -- UI
   use 'sainnhe/gruvbox-material'
+
+  use { 'luisiacc/gruvbox-baby', branch = 'main' }
+  use "EdenEast/nightfox.nvim"
+
+
   use 'junegunn/vim-emoji'
   use 'hoob3rt/lualine.nvim'
 

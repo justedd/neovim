@@ -189,21 +189,21 @@ ins_left {function() return '%=' end}
   --color = {fg = colors.green, gui = 'bold'}
 --}
 
-ins_right {
+ins_right({
   'filetype',
   upper = true,
   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
   color = {fg = colors.green, gui = 'bold'}
-}
+}, true)
 
-ins_right {
-  'branch',
-  icon = '',
-  condition = conditions.check_git_workspace,
-  color = {fg = '#d4be98', gui = 'bold'}
-}
+--ins_right {
+  --'branch',
+  --icon = '',
+  --condition = conditions.check_git_workspace,
+  --color = {fg = '#d4be98', gui = 'bold'}
+--}
 
-ins_right {
+ins_right({
   'diff',
   -- Is it me or the symbol for modified us really weird
   symbols = {added = ' ', modified = '柳 ', removed = ' '},
@@ -211,7 +211,7 @@ ins_right {
   color_modified = colors.orange,
   color_removed = colors.red,
   condition = conditions.hide_in_width
-}
+}, true)
 
 ins_right {
   function() return '▊' end,
